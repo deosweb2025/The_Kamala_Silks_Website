@@ -1,4 +1,4 @@
-import heroBannerOne from '../assets/images/hero banner image .jpeg';
+import heroBannerOne from '../assets/images/hero banner image.jpeg';
 import heroBannerTwo from '../assets/images/hero banner image 2.jpeg';
 import heroBannerThree from '../assets/images/hero banner image 3.jpeg';
 
