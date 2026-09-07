@@ -1,3 +1,7 @@
+import heroBannerOne from '../assets/images/hero banner image.jpeg';
+import heroBannerTwo from '../assets/images/hero banner image 2.jpeg';
+import heroBannerThree from '../assets/images/hero banner image 3.jpeg';
+
 export const siteData = {
   company: {
     name: "The Kamala Silks",
@@ -177,21 +181,21 @@ export const siteData = {
   heroSlides: [
     {
       id: 1,
-      image: "/images/pic10.jpeg",
+      image: heroBannerOne,
       title: "Timeless Elegance",
       subtitle: "Discover the finest collection of handcrafted silk sarees.",
     },
     {
       id: 2,
-      image: "/images/pic3.jpeg",
+      image: heroBannerTwo,
       title: "Authentic Katha Stitch",
       subtitle: "Woven with passion, tailored with tradition.",
     },
     {
       id: 3,
-      image: "/images/pic7.jpeg",
-      title: "Premium Matka Silk",
-      subtitle: "Experience luxury in every thread.",
+      image: heroBannerThree,
+      title: "Heritage Woven Since Generations",
+      subtitle: "Celebrate timeless craftsmanship with The Kamala Silks.",
     }
   ],
 
