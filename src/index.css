@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2c1b18; /* Rich Dark Brown */
+  --color-secondary: #665342; /* Earthy Brown */
+  --color-accent: #E57C22; /* Warm Amber */
+  
+  --font-sans: 'Montserrat', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+}
+
+@layer base {
+  :root {
+    --color-primary: #2c1b18;
+    --color-secondary: #665342;
+    --color-accent: #E57C22;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-primary font-sans antialiased;
+  }
+}
+
+@theme {
+  --animate-marquee: marquee 25s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* Hide scrollbar but keep scroll functionality */
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
