@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Award, ShieldCheck, Star, ShoppingBag, Eye, Check, MessageCircle } from 'lucide-react';
 import { siteData } from '../../data/siteData';
 import SectionHeading from '../common/SectionHeading';
 import ProductModal from '../common/ProductModal';
 import certificatePng from '../../assets/images/certificate.png';
+import posterImage from '../../assets/images/poster image.jpeg';
+import posterImageTwo from '../../assets/images/poster image 2.jpeg';
 import { useCart } from '../../context/CartContext';
 
 // Trust / Certificate Banner
@@ -173,72 +175,67 @@ export const TrustBanner = () => {
 
 // About Glimpse
 export const AboutGlimpse = () => {
-  const images = [
-    "/images/pic1.jpeg", 
-    "/images/pic2.jpeg", 
-    "/images/pic3.jpeg", 
-    "/images/pic8.jpeg"
-  ];
-  const [currentIdx, setCurrentIdx] = useState(0);
+  const posterImages = [posterImage, posterImageTwo];
+  const [currentPoster, setCurrentPoster] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 3000);
+      setCurrentPoster((previous) => (previous + 1) % posterImages.length);
+    }, 2000);
+
     return () => clearInterval(timer);
-  }, [images.length]);
+  }, [posterImages.length]);
 
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Overlapping Card Layout */}
-        <div className="flex flex-col lg:flex-row items-center group">
-          
-          {/* Left Side: Image Slider */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="w-full lg:w-[60%] relative h-[450px] md:h-[550px] lg:h-[650px] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl z-0"
-          >
-            <AnimatePresence mode="wait">
-              <motion.img 
-                key={currentIdx}
-                src={images[currentIdx]} 
-                alt="About The Kamala Silks" 
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-              />
-            </AnimatePresence>
-            <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-          </motion.div>
-
-          {/* Right Side: Blurred Content Box Overlapping Image */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full lg:w-[50%] -mt-16 lg:mt-0 lg:-ml-[10%] relative z-10 p-8 md:p-12 lg:p-16 bg-white/70 backdrop-blur-2xl rounded-3xl shadow-[-10px_0_40px_rgba(0,0,0,0.15)] border border-white/60"
-          >
-            <span className="text-accent font-semibold tracking-[0.2em] uppercase mb-4 block">Our Heritage</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary mb-8 leading-tight">
-              Tradition Woven Into Every Thread
+    <section className="relative overflow-hidden bg-[#24140e] py-20 md:py-28">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(229,124,34,0.14),transparent_42%)] pointer-events-none" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7 }}
+          className="mb-10 flex items-end justify-between gap-6"
+        >
+          <div>
+            <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.35em] text-accent">The Kamala Story</span>
+            <h2 className="max-w-2xl font-heading text-4xl font-bold leading-tight text-white md:text-5xl">
+              A living tradition, <span className="italic text-[#f1ca72]">woven by hand</span>
             </h2>
-            <p className="text-secondary font-sans text-lg mb-10 leading-relaxed">
-              Welcome to {siteData.company.name}. We are dedicated to bringing you the finest handcrafted silk, tasar, matka, and katha stitch sarees. Our journey is rooted in preserving authentic craftsmanship while offering premium elegance.
-            </p>
-            <NavLink to="/about" className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-sans font-medium rounded-full hover:bg-accent hover:-translate-y-1 transition-all shadow-lg shadow-primary/20 group/btn">
-              Read Our Story <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-            </NavLink>
-          </motion.div>
+          </div>
+          <NavLink to="/about" className="hidden shrink-0 items-center gap-2 border-b border-accent/70 pb-2 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:text-accent sm:inline-flex">
+            Our story <ArrowRight className="h-4 w-4" />
+          </NavLink>
+        </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="overflow-hidden rounded-2xl border border-[#f1ca72]/25 bg-[#120a07] shadow-[0_30px_80px_rgba(0,0,0,0.45)]"
+        >
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentPoster}
+              src={posterImages[currentPoster]}
+              alt={`The Kamala Silks collection poster ${currentPoster + 1}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.45, ease: 'easeInOut' }}
+              className="block h-auto w-full object-contain object-center transition-transform duration-1000 hover:scale-[1.02]"
+            />
+          </AnimatePresence>
+        </motion.div>
+
+        <div className="grid gap-8 border-x border-b border-white/10 bg-[#1b0e09] px-6 py-8 md:grid-cols-[1fr_auto] md:items-center md:px-10 md:py-9">
+          <p className="max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
+            From naturally textured Tasar to expressive Katha stitch, {siteData.company.name} brings authentic handloom craft into a modern wardrobe. Every piece carries the patience, skill, and story of the artisan who made it.
+          </p>
+          <NavLink to="/about" className="inline-flex w-fit items-center gap-3 rounded-full bg-accent px-6 py-3.5 font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-white hover:text-primary md:justify-self-end">
+            Read Our Story <ArrowRight className="h-5 w-5" />
+          </NavLink>
         </div>
       </div>
     </section>
