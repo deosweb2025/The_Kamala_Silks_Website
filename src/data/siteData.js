@@ -183,7 +183,7 @@ export const siteData = {
     },
     {
       id: 2,
-      image: "/images/pic5.jpeg",
+      image: "/images/pic3.jpeg",
       title: "Authentic Katha Stitch",
       subtitle: "Woven with passion, tailored with tradition.",
     },

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { siteData } from '../../data/siteData';
@@ -35,21 +35,24 @@ const Hero = () => {
           />
           
           {/* Base darkening layer for text contrast */}
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/25" />
           
-          {/* Dynamic Spotlight Vignette (Dark edges, clear center) */}
+          {/* Visible spotlight: warm center, gently darkened edges */}
           <motion.div 
-            animate={{ opacity: [0.85, 1, 0.85] }}
+            animate={{ opacity: [0.9, 1, 0.9] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_10%,rgba(0,0,0,0.95)_100%)] pointer-events-none"
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse 58% 62% at 50% 46%, rgba(255, 244, 214, 0.2) 0%, rgba(229, 124, 34, 0.1) 34%, rgba(0, 0, 0, 0.16) 60%, rgba(0, 0, 0, 0.82) 100%)',
+            }}
           />
 
-          {/* Subtle Warm Spotlight Glow behind the text */}
+          {/* Soft glow that keeps the text area lifted from the image */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <motion.div 
-              animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
+              animate={{ scale: [1, 1.08, 1], opacity: [0.3, 0.5, 0.3] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-accent/30 rounded-full blur-[120px]"
+              className="w-[520px] md:w-[760px] h-[420px] md:h-[620px] bg-accent/25 rounded-full blur-[105px]"
             />
           </div>
         </motion.div>
