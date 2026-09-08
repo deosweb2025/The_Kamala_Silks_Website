@@ -26,7 +26,13 @@ const Cart = () => {
 
   return (
     <div className="w-full bg-gray-50 min-h-screen">
-      <PageHeader title="Your Cart" subtitle="Review your selected sarees." />
+      <PageHeader 
+        title="Your Cart" 
+        subtitle="Review your selected sarees." 
+        bgImage="/images/pic15.jpeg"
+        badge="YOUR CART SELECTION"
+        breadcrumb="Cart"
+      />
 
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {cartItems.length === 0 ? (

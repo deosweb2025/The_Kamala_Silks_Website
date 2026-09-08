@@ -7,7 +7,13 @@ import { siteData } from '../data/siteData';
 const Services = () => {
   return (
     <div className="w-full">
-      <PageHeader title="Our Services" subtitle="What makes The Kamala Silks unique." />
+      <PageHeader 
+        title="Our Services" 
+        subtitle="What makes The Kamala Silks unique." 
+        bgImage="/images/services-hero-bg.jpg"
+        badge="CRAFTSMANSHIP & SERVICES"
+        breadcrumb="Services"
+      />
       
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

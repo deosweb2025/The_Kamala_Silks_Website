@@ -13,7 +13,13 @@ const Gallery = () => {
 
   return (
     <div className="w-full bg-gray-50">
-      <PageHeader title="Gallery" subtitle="A visual journey of our heritage." />
+      <PageHeader 
+        title="Gallery" 
+        subtitle="A visual journey of our heritage." 
+        bgImage="/images/gallery-hero-bg.jpg"
+        badge="VISUAL JOURNEY OF HERITAGE"
+        breadcrumb="Gallery"
+      />
       
       <section className="py-24 relative overflow-hidden">
         {/* Subtle background texture */}

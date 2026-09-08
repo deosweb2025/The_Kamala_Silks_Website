@@ -7,7 +7,13 @@ import { TrustBanner } from '../components/home/HomeGlimpses';
 const About = () => {
   return (
     <div className="w-full">
-      <PageHeader title="About Us" subtitle="Our journey, our passion, our tradition." />
+      <PageHeader 
+        title="About Us" 
+        subtitle="Our journey, our passion, our tradition." 
+        bgImage="/images/about-hero-bg.jpg"
+        badge="OUR HERITAGE & PASSION"
+        breadcrumb="About Us"
+      />
       
       {/* Introduction Section */}
       <section className="py-24 bg-white relative overflow-hidden">

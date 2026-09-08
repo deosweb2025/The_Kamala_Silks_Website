@@ -129,7 +129,13 @@ const Products = () => {
 
   return (
     <div className="w-full bg-gray-50">
-      <PageHeader title="Our Products" subtitle="Explore our exclusive collection." />
+      <PageHeader 
+        title="Our Products" 
+        subtitle="Explore our exclusive collection." 
+        bgImage="/images/products-hero-bg.jpg"
+        badge="EXCLUSIVE HANDLOOM COLLECTION"
+        breadcrumb="Products"
+      />
 
       <section className="py-24 relative overflow-hidden">
         {/* Subtle background texture */}

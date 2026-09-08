@@ -247,6 +247,10 @@ export const AboutGlimpse = () => {
 // Services Glimpse
 export const ServicesGlimpse = () => (
   <section className="py-24 bg-gray-50 relative overflow-hidden">
+    <div 
+      className="absolute inset-0 bg-cover bg-center opacity-[0.04] mix-blend-multiply pointer-events-none"
+      style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+    />
     <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <SectionHeading title="What We Offer" subtitle="Our Specialities" />

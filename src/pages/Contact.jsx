@@ -81,7 +81,13 @@ ${formData.enquiry || '(No message provided)'}`;
 
   return (
     <div className="w-full">
-      <PageHeader title="Contact Us" subtitle="Get in touch for enquiries and support" />
+      <PageHeader 
+        title="Contact Us" 
+        subtitle="Get in touch for enquiries and support" 
+        bgImage="/images/contact-hero-bg.jpg"
+        badge="GET IN TOUCH WITH US"
+        breadcrumb="Contact Us"
+      />
 
       <section className="py-24 relative overflow-hidden bg-gray-50">
         <div
