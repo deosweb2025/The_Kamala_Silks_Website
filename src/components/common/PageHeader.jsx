@@ -16,7 +16,7 @@ const PageHeader = ({ title, subtitle, bgImage = "/images/pic15.jpeg" }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4"
+          className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-[#e8ce7b] mb-4"
         >
           {title}
         </motion.h1>
@@ -25,7 +25,7 @@ const PageHeader = ({ title, subtitle, bgImage = "/images/pic15.jpeg" }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-200 font-medium"
+            className="text-lg md:text-xl text-[#e8ce7b]/80 font-medium"
           >
             {subtitle}
           </motion.p>
