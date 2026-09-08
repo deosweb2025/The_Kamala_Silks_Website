@@ -27,45 +27,50 @@ const ProductCard = ({ product, idx, onQuickView }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: (idx % 4) * 0.12 }}
-      className="group bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100/80 hover:-translate-y-2"
+      className="group relative p-[2px] bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col hover:-translate-y-2"
     >
-      {/* Image */}
-      <div className="overflow-hidden relative aspect-[4/5] flex-shrink-0 cursor-pointer" onClick={() => onQuickView(product)}>
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-        />
+      {/* Animated Spinning Gradient Border */}
+      <div className="absolute inset-[-150%] bg-[conic-gradient(from_90deg_at_50%_50%,#E57C22_0%,#ffffff_50%,#E57C22_100%)] animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
 
-        {/* Dark overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+      {/* Inner Container */}
+      <div className="relative bg-white rounded-[22px] flex flex-col h-full overflow-hidden z-10">
+        {/* Image */}
+        <div className="overflow-hidden relative aspect-[4/5] flex-shrink-0 cursor-pointer" onClick={() => onQuickView(product)}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
 
-        {/* Category badge */}
-        <div className="absolute top-4 left-4">
-          <span className="bg-white/90 backdrop-blur-sm text-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow">
-            {product.category}
-          </span>
+          {/* Dark overlay on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+
+          {/* Category badge */}
+          <div className="absolute top-4 left-4">
+            <span className="bg-white/90 backdrop-blur-sm text-accent text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow">
+              {product.category}
+            </span>
+          </div>
+
+          {/* Quick View button */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <button
+              onClick={(e) => { e.stopPropagation(); onQuickView(product); }}
+              className="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/50 px-5 py-2.5 rounded-full font-semibold text-sm -translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-xl"
+            >
+              <Eye className="w-4 h-4" /> Quick View
+            </button>
+          </div>
         </div>
 
-        {/* Quick View button */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <button
-            onClick={(e) => { e.stopPropagation(); onQuickView(product); }}
-            className="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/50 px-5 py-2.5 rounded-full font-semibold text-sm -translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-xl"
-          >
-            <Eye className="w-4 h-4" /> Quick View
-          </button>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="flex flex-col p-6 flex-grow">
-        <h3 className="text-lg font-heading font-bold text-primary group-hover:text-accent transition-colors line-clamp-1 mb-1">
-          {product.name}
-        </h3>
-        <p className="text-secondary/60 font-sans text-sm line-clamp-2 mb-4">
-          {product.description}
-        </p>
+        {/* Content */}
+        <div className="flex flex-col p-6 flex-grow">
+          <h3 className="text-lg font-heading font-bold text-primary group-hover:text-accent transition-colors line-clamp-1 mb-1">
+            {product.name}
+          </h3>
+          <p className="text-secondary/60 font-sans text-sm line-clamp-2 mb-4">
+            {product.description}
+          </p>
 
         {/* Price */}
         <div className="flex items-center justify-between mb-5 mt-auto">
@@ -103,6 +108,7 @@ const ProductCard = ({ product, idx, onQuickView }) => {
           >
             <MessageCircle className="w-5 h-5" />
           </a>
+        </div>
         </div>
       </div>
     </motion.div>

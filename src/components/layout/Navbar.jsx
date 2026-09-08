@@ -23,7 +23,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  const isDark = !isScrolled && !isMobileMenuOpen;
+  const isDark = !isScrolled;
 
   return (
     <header
@@ -37,7 +37,7 @@ const Navbar = () => {
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-3 z-50">
             <img src={siteData.company.logo} alt={siteData.company.name} className="h-12 w-auto object-contain" />
-            <span className={`font-heading font-semibold text-xl md:text-2xl tracking-wide ${isDark ? 'text-white' : 'text-primary'}`}>
+            <span className={`font-heading font-semibold text-xl md:text-2xl tracking-wide ${isDark ? 'text-[#e8ce7b]' : 'text-primary'}`}>
               The Kamala Silks
             </span>
           </NavLink>
@@ -50,7 +50,7 @@ const Navbar = () => {
                 to={item.path}
                 className={({ isActive }) =>
                   `text-sm font-medium uppercase tracking-wider transition-colors hover:text-accent ${
-                    isActive ? 'text-accent' : (isDark ? 'text-white/90' : 'text-primary')
+                    isActive ? 'text-accent' : (isDark ? 'text-[#e8ce7b]' : 'text-primary')
                   }`
                 }
               >
@@ -61,7 +61,7 @@ const Navbar = () => {
             {/* Cart Icon */}
             <NavLink to="/cart" className="relative group">
               <ShoppingBag
-                className={`w-6 h-6 transition-colors group-hover:text-accent ${isDark ? 'text-white/90' : 'text-primary'}`}
+                className={`w-6 h-6 transition-colors group-hover:text-accent ${isDark ? 'text-[#e8ce7b]' : 'text-primary'}`}
               />
               {totalItems > 0 && (
                 <motion.span
@@ -79,7 +79,7 @@ const Navbar = () => {
           {/* Mobile right side: cart + menu toggle */}
           <div className="flex md:hidden items-center gap-3 z-50">
             <NavLink to="/cart" className="relative">
-              <ShoppingBag className={`w-6 h-6 ${isScrolled ? 'text-primary' : 'text-white'}`} />
+              <ShoppingBag className={`w-6 h-6 ${isDark ? 'text-[#e8ce7b]' : 'text-primary'}`} />
               {totalItems > 0 && (
                 <span className="absolute -top-2 -right-2 w-5 h-5 bg-accent text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                   {totalItems > 9 ? '9+' : totalItems}
@@ -92,9 +92,9 @@ const Navbar = () => {
               aria-label="Toggle Menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-primary" />
+                <X className={`w-6 h-6 ${isDark ? 'text-[#e8ce7b]' : 'text-primary'}`} />
               ) : (
-                <Menu className={`w-6 h-6 ${isScrolled ? 'text-primary' : 'text-white'}`} />
+                <Menu className={`w-6 h-6 ${isDark ? 'text-[#e8ce7b]' : 'text-primary'}`} />
               )}
             </button>
           </div>
