@@ -11,11 +11,16 @@ const Cart = () => {
 
   const buildWhatsAppMessage = () => {
     if (cartItems.length === 0) return '';
-    const lines = cartItems.map(
-      (item) => `• ${item.name} (Qty: ${item.qty}) — ${item.fabric || item.category}`
-    );
+    const lines = cartItems.map((item) => {
+      const priceNum = item.price ? parseInt(item.price.replace(/[^\d]/g, ''), 10) : 0;
+      const priceStr = item.price ? ` — ₹${priceNum * item.qty}` : '';
+      return `• ${item.name} (Qty: ${item.qty})${priceStr} — ${item.fabric || item.category}`;
+    });
+    const total = cartItems.reduce((acc, item) => acc + (item.price ? parseInt(item.price.replace(/[^\d]/g, ''), 10) : 0) * item.qty, 0);
+    const totalStr = total > 0 ? `\n\n*Estimated Total: ₹${total}*\n*(Courier charges applicable as per destination)*` : '';
+    
     return encodeURIComponent(
-      `Hi, I'd like to enquire about the following items from The Kamala Silks:\n\n${lines.join('\n')}\n\nPlease share the pricing and availability. Thank you!`
+      `Hi, I'd like to place an order for the following items from The Kamala Silks:\n\n${lines.join('\n')}${totalStr}\n\nPlease confirm availability and payment details. Thank you!`
     );
   };
 
@@ -99,8 +104,9 @@ const Cart = () => {
                           <p className="text-sm text-secondary/60 font-sans">{item.fabric}</p>
                         )}
                         <p className="mt-2 text-sm font-semibold text-accent/80 bg-accent/10 px-3 py-1 rounded-full w-fit">
-                          Contact for Price
+                          {item.price ? item.price : "Contact for Price"}
                         </p>
+                        <p className="text-[10px] text-secondary/50 italic mt-1.5">*Courier charges applicable as per destinations</p>
                       </div>
 
                       {/* Qty controls */}
@@ -148,19 +154,32 @@ const Cart = () => {
               </h3>
 
               <div className="space-y-3 mb-6">
-                {cartItems.map((item) => (
-                  <div key={item.id} className="flex justify-between text-sm font-sans">
-                    <span className="text-secondary/80 truncate max-w-[160px]">
-                      {item.name} <span className="text-gray-400">×{item.qty}</span>
-                    </span>
-                    <span className="text-primary font-medium shrink-0">Price on request</span>
-                  </div>
-                ))}
+                {cartItems.map((item) => {
+                  const priceNum = item.price ? parseInt(item.price.replace(/[^\d]/g, ''), 10) : 0;
+                  return (
+                    <div key={item.id} className="flex justify-between text-sm font-sans">
+                      <span className="text-secondary/80 truncate max-w-[160px]">
+                        {item.name} <span className="text-gray-400">×{item.qty}</span>
+                      </span>
+                      <span className="text-primary font-medium shrink-0">
+                        {item.price ? `₹${priceNum * item.qty}` : 'Price on request'}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              {/* Total Calculation */}
+              <div className="flex justify-between items-center py-4 border-t border-gray-100 mb-6">
+                <span className="text-lg font-bold text-primary">Total</span>
+                <span className="text-xl font-bold text-accent">
+                  ₹{cartItems.reduce((acc, item) => acc + (item.price ? parseInt(item.price.replace(/[^\d]/g, ''), 10) : 0) * item.qty, 0)}
+                </span>
               </div>
 
               <div className="bg-accent/5 rounded-2xl p-4 mb-8 text-center border border-accent/10">
                 <p className="text-sm text-secondary/70 font-sans leading-relaxed">
-                  Prices are available on request. Our team will contact you via WhatsApp with the best quote.
+                  Proceed via WhatsApp to finalize your order. <br/><span className="text-xs font-semibold italic text-accent/80 mt-1 block">*Courier charges applicable as per destinations</span>
                 </p>
               </div>
 

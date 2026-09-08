@@ -79,9 +79,14 @@ const ProductModal = ({ isOpen, onClose, product, type = "product" }) => {
                 <h3 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2">
                   {product.name}
                 </h3>
-                <p className="text-sm font-semibold text-accent bg-accent/10 px-4 py-2 rounded-full w-fit mb-6">
-                  Contact for Price
-                </p>
+                <div className="mb-6">
+                  <p className="text-sm font-semibold text-accent bg-accent/10 px-4 py-2 rounded-full w-fit">
+                    {product.price ? product.price : "Contact for Price"}
+                  </p>
+                  <p className="text-[11px] text-secondary/50 italic mt-2">
+                    *Courier charges applicable as per destinations
+                  </p>
+                </div>
                 <p className="text-secondary/80 font-sans leading-relaxed mb-8">
                   {product.description}
                 </p>

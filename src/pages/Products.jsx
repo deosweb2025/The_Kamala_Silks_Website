@@ -72,12 +72,15 @@ const ProductCard = ({ product, idx, onQuickView }) => {
             {product.description}
           </p>
 
-        {/* Price */}
-        <div className="flex items-center justify-between mb-5 mt-auto">
-          <span className="text-sm font-semibold text-accent/80 font-sans bg-accent/10 px-3 py-1 rounded-full">
-            Contact for Price
-          </span>
-          <span className="text-xs text-secondary/50 font-sans">{product.fabric}</span>
+        {/* Price & Courier Info */}
+        <div className="mb-5 mt-auto flex flex-col gap-1.5">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-bold text-accent font-sans bg-accent/10 px-3 py-1 rounded-full">
+              {product.price ? product.price : "Contact for Price"}
+            </span>
+            <span className="text-xs text-secondary/50 font-sans">{product.fabric}</span>
+          </div>
+          <span className="text-[10px] text-secondary/40 italic leading-tight">*Courier charges applicable as per destinations</span>
         </div>
 
         {/* Action buttons */}

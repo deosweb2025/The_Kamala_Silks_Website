@@ -6,7 +6,7 @@ export const siteData = {
   company: {
     name: "The Kamala Silks",
     tagline: "Handcrafted with Authenticity",
-    description: "Premium handcrafted silk, tasar, matka, and katha stitch sarees, kurties, khadi, and cotton shirts.",
+    description: "Premium handcrafted silk, tasar, matka, and katha stitch sarees, kurties, khadi, cotton shirts, raw silk thaan, and 100% pure authentic Murshidabad silk.",
     logo: "/logo.png",
   },
 
@@ -74,6 +74,7 @@ export const siteData = {
       fabric: "Pure Matka Silk",
       dimensions: "6.5 Meters (with blouse piece)",
       care: "Dry clean only",
+      price: "₹3000"
     },
     {
       id: "p2",
@@ -84,6 +85,7 @@ export const siteData = {
       fabric: "Handwoven Tasar Silk",
       dimensions: "6.5 Meters (with blouse piece)",
       care: "Dry clean only",
+      price: "₹4600"
     },
     {
       id: "p3",
@@ -94,6 +96,7 @@ export const siteData = {
       fabric: "Pure Silk",
       dimensions: "6.5 Meters",
       care: "Gentle hand wash / Dry clean",
+      price: "₹3000"
     },
     {
       id: "p4",
@@ -104,6 +107,7 @@ export const siteData = {
       fabric: "Premium Khadi Cotton",
       dimensions: "5.5 Meters",
       care: "Machine wash cold",
+      price: "₹4000"
     },
     {
       id: "p5",
@@ -114,6 +118,7 @@ export const siteData = {
       fabric: "Blended Silk",
       dimensions: "6.5 Meters (with blouse piece)",
       care: "Dry clean only",
+      price: "₹4000"
     },
     {
       id: "p6",
@@ -124,6 +129,7 @@ export const siteData = {
       fabric: "Matka Silk",
       dimensions: "6.5 Meters",
       care: "Dry clean only",
+      price: "₹4000"
     },
     {
       id: "p7",
@@ -134,6 +140,7 @@ export const siteData = {
       fabric: "Pure Silk",
       dimensions: "6.5 Meters",
       care: "Dry clean only",
+      price: "₹3000"
     },
     {
       id: "p8",
@@ -144,6 +151,40 @@ export const siteData = {
       fabric: "Tasar Silk",
       dimensions: "6.5 Meters (with blouse piece)",
       care: "Dry clean only",
+      price: "₹4000"
+    },
+    {
+      id: "p9",
+      name: "Heritage Silk Saree",
+      category: "Saree",
+      image: "/images/pic9.jpeg",
+      description: "A fine example of handwoven heritage silk.",
+      fabric: "Pure Silk",
+      dimensions: "6.5 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4000"
+    },
+    {
+      id: "p10",
+      name: "Vibrant Cotton Silk",
+      category: "Saree",
+      image: "/images/pic10.jpeg",
+      description: "Comfortable yet elegant blended fabric for versatile wear.",
+      fabric: "Cotton Silk",
+      dimensions: "6.5 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹3000"
+    },
+    {
+      id: "p11",
+      name: "Royal Katha Work",
+      category: "Saree",
+      image: "/images/pic16.jpeg",
+      description: "Exquisite Katha work that makes a royal statement.",
+      fabric: "Pure Silk",
+      dimensions: "6.5 Meters",
+      care: "Dry clean only",
+      price: "₹4000"
     }
   ],
 

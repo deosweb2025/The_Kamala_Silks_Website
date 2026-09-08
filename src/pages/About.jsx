@@ -35,7 +35,7 @@ const About = () => {
                   At {siteData.company.name}, we believe that every thread tells a story. Our journey began with a simple passion: to bring the authentic beauty of handcrafted silk, tasar, and matka directly to those who appreciate true artistry.
                 </p>
                 <p>
-                  Specializing in the intricate art of Katha stitch, we work closely with skilled artisans to ensure that every saree, kurti, and shirt we offer is a masterpiece of traditional craftsmanship. Our khadi and cotton collections are designed for both comfort and enduring elegance.
+                  Specializing in the intricate art of Katha stitch, we work closely with skilled artisans to ensure that every saree, kurti, and shirt we offer is a masterpiece of traditional craftsmanship. Our khadi and cotton collections are designed for both comfort and enduring elegance. Additionally, beyond our silk sarees, we also offer raw silk thaan (without print) and 100% pure authentic Murshidabad silk.
                 </p>
                 <p>
                   Located in the heart of Berhampore, Murshidabad—a region renowned for its rich silk weaving heritage—we are proud to be a part of this enduring legacy. When you choose {siteData.company.name}, you are not just buying clothing; you are embracing a piece of history.

@@ -232,6 +232,8 @@ export const AboutGlimpse = () => {
         <div className="grid gap-8 border-x border-b border-white/10 bg-[#1b0e09] px-6 py-8 md:grid-cols-[1fr_auto] md:items-center md:px-10 md:py-9">
           <p className="max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
             From naturally textured Tasar to expressive Katha stitch, {siteData.company.name} brings authentic handloom craft into a modern wardrobe. Every piece carries the patience, skill, and story of the artisan who made it.
+            <br className="hidden md:block" /> <br className="hidden md:block" />
+            <span className="text-white/85 font-medium italic">Beyond our exquisite silk sarees, we also offer raw silk thaan (without print) and 100% pure authentic Murshidabad silk.</span>
           </p>
           <NavLink to="/about" className="inline-flex w-fit items-center gap-3 rounded-full bg-accent px-6 py-3.5 font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-white hover:text-primary md:justify-self-end">
             Read Our Story <ArrowRight className="h-5 w-5" />
@@ -347,14 +349,17 @@ const HomeProductCard = ({ product, idx, onQuickView }) => {
             {product.description}
           </p>
 
-        {/* "Contact for Price" + Fabric */}
-        <div className="flex items-center justify-between mb-4 mt-auto">
-          <span className="text-xs font-semibold text-accent/80 font-sans bg-accent/10 px-2.5 py-1 rounded-full">
-            Contact for Price
-          </span>
-          {product.fabric && (
-            <span className="text-[10px] text-secondary/40 font-sans truncate max-w-[80px]">{product.fabric}</span>
-          )}
+        {/* Price & Courier Info */}
+        <div className="mb-4 mt-auto flex flex-col gap-1.5">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-accent font-sans bg-accent/10 px-2.5 py-1 rounded-full">
+              {product.price ? product.price : "Contact for Price"}
+            </span>
+            {product.fabric && (
+              <span className="text-[10px] text-secondary/40 font-sans truncate max-w-[80px]">{product.fabric}</span>
+            )}
+          </div>
+          <span className="text-[9px] text-secondary/40 italic leading-tight">*Courier charges applicable as per destinations</span>
         </div>
 
         {/* Action buttons */}

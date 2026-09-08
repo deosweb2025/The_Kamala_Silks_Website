@@ -25,7 +25,7 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: 'easeInOut' }}
-            className="block aspect-[16/7] w-full object-cover object-center sm:aspect-[16/6]"
+            className="block h-[calc(100vh-80px)] md:h-[calc(100vh-96px)] w-full object-cover object-center"
           />
         </AnimatePresence>
 
