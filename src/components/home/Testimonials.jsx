@@ -9,7 +9,7 @@ const Testimonials = () => {
   return (
     <section 
       className="py-20 overflow-hidden bg-cover bg-center relative"
-      style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+      style={{ backgroundImage: 'url("/images/texture.webp")' }}
     >
       <div className="absolute inset-0 bg-white/40 mix-blend-overlay"></div> {/* Optional slight blend for readability */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">

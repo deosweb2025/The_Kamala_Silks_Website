@@ -10,7 +10,7 @@ const About = () => {
       <PageHeader 
         title="About Us" 
         subtitle="Our journey, our passion, our tradition." 
-        bgImage="/images/about-hero-bg.jpg"
+        bgImage="/images/about-hero-bg.webp"
         badge="OUR HERITAGE & PASSION"
         breadcrumb="About Us"
       />
@@ -61,14 +61,14 @@ const About = () => {
                 <motion.img 
                   whileHover={{ scale: 1.05, rotate: -2 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  src="/images/pic8.jpeg" 
+                  src="/images/pic8.webp" 
                   alt="Craftsmanship" 
                   className="w-full h-[350px] object-cover rounded-xl shadow-2xl mt-12 relative z-10" 
                 />
                 <motion.img 
                   whileHover={{ scale: 1.05, rotate: 2 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  src="/images/pic2.jpeg" 
+                  src="/images/pic2.webp" 
                   alt="Heritage" 
                   className="w-full h-[350px] object-cover rounded-xl shadow-2xl relative z-10" 
                 />
@@ -81,7 +81,7 @@ const About = () => {
       {/* Legacy & Values Section with Texture Background */}
       <section 
         className="py-24 relative overflow-hidden bg-cover bg-center text-primary"
-        style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+        style={{ backgroundImage: 'url("/images/texture.webp")' }}
       >
         <div className="absolute inset-0 bg-white/60 mix-blend-overlay"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -143,7 +143,7 @@ const About = () => {
               viewport={{ once: true }}
               className="w-full lg:w-1/2 h-[400px]"
             >
-              <img src="/images/pic3.jpeg" alt="Our Store" className="w-full h-full object-cover" />
+              <img src="/images/pic3.webp" alt="Our Store" className="w-full h-full object-cover" />
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, x: 50 }}

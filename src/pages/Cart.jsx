@@ -29,7 +29,7 @@ const Cart = () => {
       <PageHeader 
         title="Your Cart" 
         subtitle="Review your selected sarees." 
-        bgImage="/images/pic15.jpeg"
+        bgImage="/images/pic15.webp"
         badge="YOUR CART SELECTION"
         breadcrumb="Cart"
       />

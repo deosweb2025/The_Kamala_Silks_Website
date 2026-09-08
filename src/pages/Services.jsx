@@ -10,7 +10,7 @@ const Services = () => {
       <PageHeader 
         title="Our Services" 
         subtitle="What makes The Kamala Silks unique." 
-        bgImage="/images/services-hero-bg.jpg"
+        bgImage="/images/services-hero-bg.webp"
         badge="CRAFTSMANSHIP & SERVICES"
         breadcrumb="Services"
       />
@@ -55,7 +55,7 @@ const Services = () => {
       {/* Process Section with textured background */}
       <section 
         className="py-24 relative overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+        style={{ backgroundImage: 'url("/images/texture.webp")' }}
       >
         <div className="absolute inset-0 bg-primary/95 mix-blend-multiply"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-white">
@@ -113,7 +113,7 @@ const Services = () => {
                   whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
-                  src="/images/pic4.jpeg" 
+                  src="/images/pic4.webp" 
                   alt="Custom Saree Order" 
                   className="w-full h-[300px] object-cover rounded-2xl shadow-xl" 
                />

@@ -81,10 +81,8 @@ const Footer = () => {
 
         </div>
 
-        <div className="pt-8 border-t border-gray-700 text-gray-400 text-sm grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-center md:text-left">
-          <p className="md:text-left">&copy; {new Date().getFullYear()} {siteData.company.name}. All rights reserved.</p>
-          <p className="md:text-center">
-            Designed & Developed by{' '}
+        <div className="pt-8 border-t border-gray-700 text-gray-400 text-sm text-center">
+          <p>&copy; {new Date().getFullYear()} {siteData.company.name}. Designed & Developed by{' '}
             <a
               href="https://www.teamdeoskolkata.in/"
               target="_blank"
@@ -94,7 +92,6 @@ const Footer = () => {
               Digital Exposure Online Service
             </a>
           </p>
-          <div className="hidden md:block"></div>
         </div>
       </div>
     </footer>

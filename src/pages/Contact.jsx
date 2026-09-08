@@ -84,7 +84,7 @@ ${formData.enquiry || '(No message provided)'}`;
       <PageHeader 
         title="Contact Us" 
         subtitle="Get in touch for enquiries and support" 
-        bgImage="/images/contact-hero-bg.jpg"
+        bgImage="/images/contact-hero-bg.webp"
         badge="GET IN TOUCH WITH US"
         breadcrumb="Contact Us"
       />
@@ -92,7 +92,7 @@ ${formData.enquiry || '(No message provided)'}`;
       <section className="py-24 relative overflow-hidden bg-gray-50">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-[0.03] mix-blend-multiply"
-          style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+          style={{ backgroundImage: 'url("/images/texture.webp")' }}
         />
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />

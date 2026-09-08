@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Award, ShieldCheck, Star, ShoppingBag, Eye, Check, MessageCircle } from 'lucide-react';
 import { siteData } from '../../data/siteData';
 import SectionHeading from '../common/SectionHeading';
 import ProductModal from '../common/ProductModal';
-import certificatePng from '../../assets/images/certificate.png';
-import posterImage from '../../assets/images/poster image.jpeg';
-import posterImageTwo from '../../assets/images/poster image 2.jpeg';
+import certificatePng from '../../assets/images/certificate.webp';
+import posterImage from '../../assets/images/poster image.webp';
+import posterImageTwo from '../../assets/images/poster image 2.webp';
 import { useCart } from '../../context/CartContext';
 
 // Trust / Certificate Banner
@@ -18,7 +18,7 @@ export const TrustBanner = () => {
       {/* Rich silk texture background */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+        style={{ backgroundImage: 'url("/images/texture.webp")' }}
       />
 
       {/* Cinematic spotlight from top center */}
@@ -77,6 +77,7 @@ export const TrustBanner = () => {
                   <img
                     src={certificatePng}
                     alt="India Handloom Certificate of Registration"
+                    loading="lazy"
                     className="w-full max-w-[380px] h-auto object-contain rounded-lg"
                   />
                 </div>
@@ -223,6 +224,7 @@ export const AboutGlimpse = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              loading="lazy"
               transition={{ duration: 0.45, ease: 'easeInOut' }}
               className="block h-auto w-full object-contain object-center transition-transform duration-1000 hover:scale-[1.02]"
             />
@@ -249,7 +251,7 @@ export const ServicesGlimpse = () => (
   <section className="py-24 bg-gray-50 relative overflow-hidden">
     <div 
       className="absolute inset-0 bg-cover bg-center opacity-[0.04] mix-blend-multiply pointer-events-none"
-      style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+      style={{ backgroundImage: 'url("/images/texture.webp")' }}
     />
     <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -305,7 +307,7 @@ const HomeProductCard = ({ product, idx, onQuickView }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className="group relative p-[2px] rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col hover:-translate-y-2 shrink-0 w-[260px] sm:w-auto bg-white"
+      className="group relative p-[2px] rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col hover:-translate-y-2 w-full bg-white"
     >
       {/* Animated Spinning Gradient Border */}
       <div className="absolute inset-[-150%] bg-[conic-gradient(from_90deg_at_50%_50%,#E57C22_0%,#ffffff_50%,#E57C22_100%)] animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
@@ -320,6 +322,7 @@ const HomeProductCard = ({ product, idx, onQuickView }) => {
           <img
             src={product.image}
             alt={product.name}
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />
 
@@ -403,16 +406,48 @@ const HomeProductCard = ({ product, idx, onQuickView }) => {
 // Products Glimpse
 export const ProductsGlimpse = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const scrollRef = useRef(null);
+  const products = siteData.products.slice(0, 4);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const scrollLeft = scrollRef.current.scrollLeft;
+      const width = scrollRef.current.clientWidth;
+      if (width > 0) {
+        const newIndex = Math.round(scrollLeft / width);
+        setActiveSlide(newIndex);
+      }
+    }
+  };
+
+  const scrollToSlide = (index) => {
+    if (scrollRef.current) {
+      const width = scrollRef.current.clientWidth;
+      scrollRef.current.scrollTo({
+        left: width * index,
+        behavior: 'smooth',
+      });
+      setActiveSlide(index);
+    }
+  };
 
   return (
     <section className="py-20 sm:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Featured Collection" subtitle="Our Best Sellers" />
 
-        {/* Mobile: horizontal scroll. Desktop: grid */}
-        <div className="mt-10 flex gap-5 overflow-x-auto pb-4 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-8 snap-x snap-mandatory sm:snap-none scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
-          {siteData.products.slice(0, 4).map((product, idx) => (
-            <div key={product.id} className="snap-start">
+        {/* Mobile: 1 product per view horizontal scroll snap slider. Desktop: 4-column grid */}
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="mt-10 flex gap-4 overflow-x-auto pb-4 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-8 snap-x snap-mandatory sm:snap-none scrollbar-none -mx-4 px-6 sm:mx-0 sm:px-0"
+        >
+          {products.map((product, idx) => (
+            <div
+              key={product.id}
+              className="snap-center shrink-0 w-[calc(100vw-3.5rem)] max-w-[340px] sm:w-auto flex justify-center mx-auto sm:mx-0"
+            >
               <HomeProductCard
                 product={product}
                 idx={idx}
@@ -422,8 +457,24 @@ export const ProductsGlimpse = () => {
           ))}
         </div>
 
+        {/* Mobile Slide Indicators */}
+        <div className="flex sm:hidden justify-center items-center gap-2 mt-6">
+          {products.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToSlide(idx)}
+              aria-label={`Go to product ${idx + 1}`}
+              className={`transition-all duration-300 rounded-full ${
+                activeSlide === idx
+                  ? 'w-6 h-2 bg-accent'
+                  : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
+              }`}
+            />
+          ))}
+        </div>
+
         {/* CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-10 sm:mt-12">
           <NavLink
             to="/products"
             className="inline-flex items-center gap-3 px-10 py-4 bg-primary text-white font-bold rounded-full hover:bg-accent hover:-translate-y-1 transition-all shadow-lg shadow-primary/25 text-base"
@@ -449,7 +500,7 @@ export const GalleryGlimpse = () => {
   return (
     <section 
       className="py-24 relative overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+      style={{ backgroundImage: 'url("/images/texture.webp")' }}
     >
       <div className="absolute inset-0 bg-primary/95 mix-blend-multiply"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-white">
@@ -471,7 +522,7 @@ export const GalleryGlimpse = () => {
               {media.type === "video" ? (
                 <video src={media.src} className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700" muted loop playsInline />
               ) : (
-                <img src={media.src} alt={`Gallery ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700" />
+                <img src={media.src} alt={`Gallery ${idx + 1}`} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700" />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                  <span className="text-white bg-white/20 backdrop-blur-md p-4 rounded-full shadow-2xl scale-50 group-hover:scale-100 transition-all duration-500">

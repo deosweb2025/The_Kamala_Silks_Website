@@ -6,9 +6,10 @@ import { Sparkles, ChevronRight } from 'lucide-react';
 const PageHeader = ({ 
   title, 
   subtitle, 
-  bgImage = "/images/pic15.jpeg",
+  bgImage = "/images/pic15.webp",
   badge,
-  breadcrumb
+  breadcrumb,
+  imageOpacity = 0.65
 }) => {
   const currentBreadcrumb = breadcrumb || title;
 
@@ -17,20 +18,20 @@ const PageHeader = ({
       {/* Background Image with subtle zoom */}
       <motion.div 
         initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.55 }}
+        animate={{ scale: 1, opacity: imageOpacity }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${bgImage})` }}
       />
 
-      {/* Dual Gradient Overlay: Dark top for navbar contrast, vibrant center, deep bottom transition */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#120a07]/90 via-[#1a0f0a]/65 to-[#120a07] mix-blend-multiply" />
-      <div className="absolute inset-0 z-0 bg-radial from-transparent via-[#1a0f0a]/40 to-[#120a07]/90" />
+      {/* Dual Gradient Overlay: Dark top for navbar contrast, vibrant clear center, smooth bottom transition */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#120a07]/80 via-[#1a0f0a]/35 to-[#120a07]/90 mix-blend-multiply" />
+      <div className="absolute inset-0 z-0 bg-radial from-transparent via-[#1a0f0a]/20 to-[#120a07]/75" />
 
       {/* Subtle Silk Texture Overlay */}
       <div 
         className="absolute inset-0 z-0 opacity-15 bg-cover bg-center pointer-events-none mix-blend-overlay"
-        style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+        style={{ backgroundImage: 'url("/images/texture.webp")' }}
       />
 
       {/* Golden Warm Spotlight Glow */}

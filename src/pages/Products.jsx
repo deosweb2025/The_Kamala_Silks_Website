@@ -132,7 +132,7 @@ const Products = () => {
       <PageHeader 
         title="Our Products" 
         subtitle="Explore our exclusive collection." 
-        bgImage="/images/products-hero-bg.jpg"
+        bgImage="/images/products-hero-bg.webp"
         badge="EXCLUSIVE HANDLOOM COLLECTION"
         breadcrumb="Products"
       />
@@ -141,7 +141,7 @@ const Products = () => {
         {/* Subtle background texture */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-[0.03] mix-blend-multiply"
-          style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+          style={{ backgroundImage: 'url("/images/texture.webp")' }}
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

@@ -16,7 +16,7 @@ const Gallery = () => {
       <PageHeader 
         title="Gallery" 
         subtitle="A visual journey of our heritage." 
-        bgImage="/images/gallery-hero-bg.jpg"
+        bgImage="/images/gallery-hero-bg.webp"
         badge="VISUAL JOURNEY OF HERITAGE"
         breadcrumb="Gallery"
       />
@@ -25,7 +25,7 @@ const Gallery = () => {
         {/* Subtle background texture */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-[0.03] mix-blend-multiply"
-          style={{ backgroundImage: 'url("/images/texture.jpg")' }}
+          style={{ backgroundImage: 'url("/images/texture.webp")' }}
         />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
