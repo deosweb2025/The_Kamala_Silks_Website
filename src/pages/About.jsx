@@ -1,14 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import PageHeader from '../components/common/PageHeader';
 import { siteData } from '../data/siteData';
 import { TrustBanner } from '../components/home/HomeGlimpses';
+import PageHero from '../components/common/PageHero';
+import heroBanner2 from '../assets/images/hero banner image 2.jpeg';
 
 const About = () => {
   return (
     <div className="w-full">
-      <PageHeader title="About Us" subtitle="Our journey, our passion, our tradition." />
-      
+
+      <PageHero image={heroBanner2} alt="The Kamala Silks — Our Story & Heritage" position="object-center" />
+
+
       {/* Introduction Section */}
       <section className="py-24 bg-white relative overflow-hidden">
         {/* Subtle background decoration */}
