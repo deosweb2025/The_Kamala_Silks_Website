@@ -1,17 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import PageHeader from '../components/common/PageHeader';
 import SectionHeading from '../components/common/SectionHeading';
 import { siteData } from '../data/siteData';
-import PageHero from '../components/common/PageHero';
-import heroBanner3 from '../assets/images/hero banner image 3.jpeg';
 
 const Services = () => {
   return (
     <div className="w-full">
-
-      <PageHero image={heroBanner3} alt="The Kamala Silks — Our Services" position="object-center" />
-
-
+      <PageHeader title="Our Services" subtitle="What makes The Kamala Silks unique." />
+      
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title="What We Provide" subtitle="Excellence in every thread" />
