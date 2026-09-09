@@ -248,12 +248,16 @@ export const AboutGlimpse = () => {
 
 // Services Glimpse
 export const ServicesGlimpse = () => (
-  <section className="py-24 bg-gray-50 relative overflow-hidden">
-    <div 
-      className="absolute inset-0 bg-cover bg-center opacity-[0.04] mix-blend-multiply pointer-events-none"
-      style={{ backgroundImage: 'url("/images/texture.webp")' }}
-    />
-    <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+  <section 
+    className="py-24 relative overflow-hidden bg-cover bg-center bg-[#FAF6F0]"
+    style={{ backgroundImage: 'url("/images/white-gold-waves.webp")' }}
+  >
+    {/* Harmonious white & golden ambient lighting and edge blends */}
+    <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F0]/85 via-white/40 to-[#FAF6F0]/85 pointer-events-none" />
+    <div className="absolute inset-0 bg-white/20 pointer-events-none" />
+    <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+    <div className="absolute -bottom-20 -left-20 w-[450px] h-[450px] bg-[#f5d87a]/15 rounded-full blur-[90px] pointer-events-none" />
+
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <SectionHeading title="What We Offer" subtitle="Our Specialities" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
@@ -264,14 +268,14 @@ export const ServicesGlimpse = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: idx * 0.15 }}
-            className="relative p-[2px] rounded-2xl overflow-hidden group shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-white"
+            className="relative p-[2px] rounded-2xl overflow-hidden group shadow-[0_10px_30px_rgba(44,27,24,0.06)] hover:shadow-[0_20px_45px_rgba(44,27,24,0.12)] hover:-translate-y-2 transition-all duration-300 bg-white/95 backdrop-blur-sm border border-accent/15 hover:border-accent/40"
           >
             {/* Animated Spinning Gradient Border */}
             <div className="absolute inset-[-150%] bg-[conic-gradient(from_90deg_at_50%_50%,#E57C22_0%,#ffffff_50%,#E57C22_100%)] animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             {/* Inner content covering the center */}
-            <div className="relative bg-white p-8 rounded-[14px] h-full z-10 flex flex-col items-start">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6 text-accent font-bold text-xl group-hover:scale-110 transition-transform">
+            <div className="relative bg-white/95 backdrop-blur-md p-8 rounded-[14px] h-full z-10 flex flex-col items-start">
+              <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/30 rounded-xl flex items-center justify-center mb-6 text-accent font-bold text-xl group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-300 shadow-sm">
                 {idx + 1}
               </div>
               <h3 className="text-xl font-heading font-bold text-primary mb-3 group-hover:text-accent transition-colors">{service.title}</h3>

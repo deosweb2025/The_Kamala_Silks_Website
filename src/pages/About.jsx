@@ -1,10 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import PageHeader from '../components/common/PageHeader';
 import { siteData } from '../data/siteData';
 import { TrustBanner } from '../components/home/HomeGlimpses';
 
+const storeSareeImages = [
+  { src: "/images/pic3.webp", alt: "Katha Stitch Masterpiece Saree in Showroom" },
+  { src: "/images/pic1.webp", alt: "Classic Handwoven Matka Silk Saree" },
+  { src: "/images/pic7.webp", alt: "Royal Handloom Silk Saree Collection" },
+  { src: "/images/pic5.webp", alt: "Premium Floral Painted Silk Saree" },
+];
+
 const About = () => {
+  const [currentStoreImage, setCurrentStoreImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentStoreImage((prev) => (prev + 1) % storeSareeImages.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <div className="w-full">
       <PageHeader 
@@ -30,67 +45,147 @@ const About = () => {
               transition={{ duration: 0.8 }}
               className="w-full lg:w-1/2"
             >
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6 leading-tight">
-                Preserving the Art of <span className="text-accent relative inline-block">
+              {/* Category Subtitle */}
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-8 h-[2px] bg-accent" />
+                <span className="text-accent font-semibold text-xs uppercase tracking-[0.25em]">Our Legacy & Craft</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-primary mb-6 leading-tight">
+                Preserving the Art of{' '}
+                <span className="text-accent relative inline-block">
                   Handwoven Heritage
-                  <span className="absolute bottom-0 left-0 w-full h-1 bg-accent/30 rounded-full" />
+                  <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-accent via-[#f5d87a] to-transparent rounded-full" />
                 </span>
               </h2>
-              <div className="space-y-6 text-lg text-secondary/90 leading-relaxed">
+
+              <div className="space-y-4 text-base sm:text-lg text-secondary/85 leading-relaxed">
                 <p>
-                  At {siteData.company.name}, we believe that every thread tells a story. Our journey began with a simple passion: to bring the authentic beauty of handcrafted silk, tasar, and matka directly to those who appreciate true artistry.
+                  At <strong className="text-primary font-semibold">{siteData.company.name}</strong>, we believe that every thread tells a story. Our journey began with a simple passion: to bring the authentic beauty of handcrafted silk, tasar, and matka directly to those who appreciate true artistry.
                 </p>
-                <p>
-                  Specializing in the intricate art of Katha stitch, we work closely with skilled artisans to ensure that every saree, kurti, and shirt we offer is a masterpiece of traditional craftsmanship. Our khadi and cotton collections are designed for both comfort and enduring elegance. Additionally, beyond our silk sarees, we also offer raw silk thaan (without print) and 100% pure authentic Murshidabad silk.
+                
+                {/* Highlight callout box */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-accent/5 border border-accent/20 my-4">
+                  <p className="text-sm sm:text-base text-secondary/90 leading-relaxed">
+                    Specializing in the intricate art of <strong className="text-primary font-semibold">Katha stitch</strong>, we work closely with skilled artisans to ensure every saree is a masterpiece. We also offer <strong className="text-primary font-semibold">raw silk thaan</strong> and 100% authentic <strong className="text-primary font-semibold">Murshidabad silk</strong>.
+                  </p>
+                </div>
+
+                <p className="text-sm sm:text-base text-secondary/80">
+                  Located in the heart of Berhampore, Murshidabad—a region renowned for centuries of royal silk weaving—we are proud to keep this historic craftsmanship vibrant for generations to come.
                 </p>
-                <p>
-                  Located in the heart of Berhampore, Murshidabad—a region renowned for its rich silk weaving heritage—we are proud to be a part of this enduring legacy. When you choose {siteData.company.name}, you are not just buying clothing; you are embracing a piece of history.
-                </p>
+              </div>
+
+              {/* Trust Metric Badges */}
+              <div className="grid grid-cols-3 gap-3 pt-6 mt-6 border-t border-gray-100">
+                <div className="text-center p-3 rounded-xl bg-gray-50/80 border border-gray-100">
+                  <p className="text-lg sm:text-xl font-heading font-bold text-primary">100%</p>
+                  <p className="text-[11px] text-secondary/60 uppercase tracking-wider font-semibold mt-0.5">Pure Silk</p>
+                </div>
+                <div className="text-center p-3 rounded-xl bg-gray-50/80 border border-gray-100">
+                  <p className="text-lg sm:text-xl font-heading font-bold text-primary">Katha</p>
+                  <p className="text-[11px] text-secondary/60 uppercase tracking-wider font-semibold mt-0.5">Hand Stitch</p>
+                </div>
+                <div className="text-center p-3 rounded-xl bg-gray-50/80 border border-gray-100">
+                  <p className="text-lg sm:text-xl font-heading font-bold text-primary">Certified</p>
+                  <p className="text-[11px] text-secondary/60 uppercase tracking-wider font-semibold mt-0.5">Handloom</p>
+                </div>
               </div>
             </motion.div>
             
+            {/* Right Side Showcase with Shaded Golden Silk Backdrop */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full lg:w-1/2"
+              className="w-full lg:w-1/2 relative"
             >
-              <div className="grid grid-cols-2 gap-6 relative">
-                <div className="absolute inset-0 bg-accent/10 -m-6 rounded-2xl transform rotate-3" />
-                <motion.img 
-                  whileHover={{ scale: 1.05, rotate: -2 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  src="/images/pic8.webp" 
-                  alt="Craftsmanship" 
-                  className="w-full h-[350px] object-cover rounded-xl shadow-2xl mt-12 relative z-10" 
-                />
-                <motion.img 
-                  whileHover={{ scale: 1.05, rotate: 2 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  src="/images/pic2.webp" 
-                  alt="Heritage" 
-                  className="w-full h-[350px] object-cover rounded-xl shadow-2xl relative z-10" 
-                />
+              {/* Warm ambient golden glow behind the frame */}
+              <div className="absolute -inset-4 bg-accent/15 rounded-[36px] blur-3xl pointer-events-none" />
+
+              {/* Luxury Frame Container with Shaded Golden Silk */}
+              <div 
+                className="relative rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(44,27,24,0.14)] border-2 border-accent/30 bg-cover bg-center p-5 sm:p-7"
+                style={{ backgroundImage: 'url("/images/shaded-gold-silk.webp")' }}
+              >
+                {/* Luminous ambient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#2c1b18]/15 via-transparent to-white/30 pointer-events-none" />
+                {/* Fine inner accent border */}
+                <div className="absolute inset-2 sm:inset-3 rounded-[20px] border border-accent/25 pointer-events-none" />
+
+                {/* Saree Showcase Duo Grid */}
+                <div className="relative z-10 grid grid-cols-2 gap-4 sm:gap-6">
+                  {/* Left Saree Card */}
+                  <motion.div 
+                    whileHover={{ y: -6 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-white/90 group bg-white"
+                  >
+                    <img 
+                      src="/images/pic8.webp" 
+                      alt="Hand-Painted Pure Silk Saree" 
+                      className="w-full h-[320px] sm:h-[380px] object-cover group-hover:scale-105 transition-transform duration-700" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
+                    <div className="absolute bottom-3 left-3 right-3 text-center">
+                      <span className="inline-block text-[11px] sm:text-xs font-semibold text-white tracking-wider uppercase drop-shadow-md">
+                        Hand-Painted Silk
+                      </span>
+                    </div>
+                  </motion.div>
+
+                  {/* Right Saree Card */}
+                  <motion.div 
+                    whileHover={{ y: -6 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-white/90 group bg-white sm:mt-6"
+                  >
+                    <img 
+                      src="/images/pic2.webp" 
+                      alt="Artisanal Katha Stitch Saree" 
+                      className="w-full h-[320px] sm:h-[380px] object-cover group-hover:scale-105 transition-transform duration-700" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
+                    <div className="absolute bottom-3 left-3 right-3 text-center">
+                      <span className="inline-block text-[11px] sm:text-xs font-semibold text-white tracking-wider uppercase drop-shadow-md">
+                        Katha Stitch Craft
+                      </span>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Floating Heritage Badge */}
+                <div className="relative z-20 mt-5 pt-3 border-t border-accent/20 flex items-center justify-center">
+                  <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md px-5 py-2 rounded-full shadow-md border border-accent/30 text-xs font-bold text-primary">
+                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                    <span className="tracking-wider uppercase text-[11px] sm:text-xs">Authentic Murshidabad Handloom</span>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Legacy & Values Section with Texture Background */}
+      {/* Legacy & Values Section with Golden Shaded Silk Background */}
       <section 
-        className="py-24 relative overflow-hidden bg-cover bg-center text-primary"
-        style={{ backgroundImage: 'url("/images/texture.webp")' }}
+        className="py-24 relative overflow-hidden bg-cover bg-center text-primary bg-[#F9F4EB]"
+        style={{ backgroundImage: 'url("/images/golden-shaded-silk.webp")' }}
       >
-        <div className="absolute inset-0 bg-white/60 mix-blend-overlay"></div>
+        {/* Luminous warm golden ambient lighting and edge blends */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F9F4EB]/80 via-white/20 to-[#F9F4EB]/85 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#fffdfa]/15 pointer-events-none" />
+        <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-[450px] h-[450px] bg-[#f5d87a]/25 rounded-full blur-[90px] pointer-events-none" />
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-accent font-semibold tracking-widest uppercase mb-2 block"
+              className="text-accent font-semibold tracking-widest uppercase mb-2 block text-sm md:text-base drop-shadow-sm"
             >
               Our Philosophy
             </motion.span>
@@ -99,10 +194,17 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-heading font-bold"
+              className="text-4xl md:text-5xl font-heading font-bold text-primary"
             >
               Values Woven In Time
             </motion.h2>
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="h-1 w-24 bg-accent mx-auto mt-6 origin-center rounded-full"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -117,13 +219,13 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
-                whileHover={{ y: -10 }}
-                className="bg-white/80 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-white/50 text-center"
+                whileHover={{ y: -8 }}
+                className="bg-white/95 backdrop-blur-md p-10 rounded-2xl shadow-[0_12px_36px_rgba(44,27,24,0.08)] border border-accent/20 hover:border-accent/50 text-center transition-all duration-300 hover:shadow-[0_20px_45px_rgba(44,27,24,0.12)]"
               >
-                <div className="w-16 h-16 mx-auto bg-accent/20 rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/25 to-accent/10 border border-accent/30 rounded-full flex items-center justify-center mb-6 shadow-sm">
                   <span className="text-2xl font-serif font-bold text-accent">{idx + 1}</span>
                 </div>
-                <h3 className="text-2xl font-heading font-bold mb-4">{value.title}</h3>
+                <h3 className="text-2xl font-heading font-bold mb-4 text-primary">{value.title}</h3>
                 <p className="text-secondary/80 text-lg leading-relaxed">{value.desc}</p>
               </motion.div>
             ))}
@@ -141,9 +243,39 @@ const About = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="w-full lg:w-1/2 h-[400px]"
+              className="w-full lg:w-1/2 h-[400px] lg:h-[440px] relative overflow-hidden group"
             >
-              <img src="/images/pic3.webp" alt="Our Store" className="w-full h-full object-cover" />
+              <AnimatePresence mode="wait">
+                <motion.img 
+                  key={currentStoreImage}
+                  src={storeSareeImages[currentStoreImage].src} 
+                  alt={storeSareeImages[currentStoreImage].alt}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="w-full h-full object-cover" 
+                />
+              </AnimatePresence>
+
+              {/* Subtle dark gradient overlay at bottom for indicator contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+
+              {/* Progress Indicator Dots */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
+                {storeSareeImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentStoreImage(idx)}
+                    aria-label={`Go to saree image ${idx + 1}`}
+                    className={`transition-all duration-300 rounded-full ${
+                      currentStoreImage === idx
+                        ? 'w-6 h-2 bg-accent shadow-sm'
+                        : 'w-2 h-2 bg-white/60 hover:bg-white'
+                    }`}
+                  />
+                ))}
+              </div>
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, x: 50 }}

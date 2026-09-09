@@ -8,10 +8,13 @@ const Testimonials = () => {
 
   return (
     <section 
-      className="py-20 overflow-hidden bg-cover bg-center relative"
-      style={{ backgroundImage: 'url("/images/texture.webp")' }}
+      className="py-24 overflow-hidden bg-cover bg-center relative bg-[#FAF7F2]"
+      style={{ backgroundImage: 'url("/images/silk-texture.webp")' }}
     >
-      <div className="absolute inset-0 bg-white/40 mix-blend-overlay"></div> {/* Optional slight blend for readability */}
+      {/* Soft luminous ambient overlay for seamless pure silk sheen */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/80 via-white/20 to-[#FAF7F2]/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-white/25 pointer-events-none" />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
         <SectionHeading title="What Our Clients Say" subtitle="Reviews" />
       </div>
@@ -21,13 +24,13 @@ const Testimonials = () => {
           {duplicatedTestimonials.map((testimonial, idx) => (
             <div 
               key={`${testimonial.id}-${idx}`}
-              className="w-[350px] sm:w-[450px] mx-4 bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex-shrink-0"
+              className="w-[350px] sm:w-[450px] mx-4 bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-[0_12px_36px_rgba(44,27,24,0.06)] border border-accent/15 hover:border-accent/40 flex-shrink-0 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="text-accent text-4xl font-serif mb-4 leading-none">"</div>
-              <p className="text-secondary/80 text-lg mb-6 whitespace-normal italic">
+              <p className="text-secondary/85 text-lg mb-6 whitespace-normal italic font-sans leading-relaxed">
                 {testimonial.text}
               </p>
-              <div className="font-heading font-bold text-primary">
+              <div className="font-heading font-bold text-primary text-base">
                 — {testimonial.name}
               </div>
             </div>
