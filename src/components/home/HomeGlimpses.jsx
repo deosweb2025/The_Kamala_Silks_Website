@@ -182,7 +182,7 @@ export const AboutGlimpse = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentPoster((previous) => (previous + 1) % posterImages.length);
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [posterImages.length]);
@@ -214,9 +214,9 @@ export const AboutGlimpse = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="overflow-hidden rounded-2xl border border-[#f1ca72]/25 bg-[#120a07] shadow-[0_30px_80px_rgba(0,0,0,0.45)]"
+          className="relative w-full aspect-[2/1] overflow-hidden rounded-2xl border border-[#f1ca72]/25 bg-[#120a07] shadow-[0_30px_80px_rgba(0,0,0,0.45)]"
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence initial={false}>
             <motion.img
               key={currentPoster}
               src={posterImages[currentPoster]}
@@ -224,18 +224,31 @@ export const AboutGlimpse = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              loading="lazy"
-              transition={{ duration: 0.45, ease: 'easeInOut' }}
-              className="block h-auto w-full object-contain object-center transition-transform duration-1000 hover:scale-[1.02]"
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
+              className="absolute inset-0 w-full h-full object-cover object-center"
             />
           </AnimatePresence>
+
+          {/* Poster indicator dots */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
+            {posterImages.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentPoster(idx)}
+                aria-label={`Go to poster ${idx + 1}`}
+                className={`transition-all duration-300 rounded-full ${
+                  currentPoster === idx
+                    ? 'w-6 h-2 bg-accent shadow-sm'
+                    : 'w-2 h-2 bg-white/60 hover:bg-white'
+                }`}
+              />
+            ))}
+          </div>
         </motion.div>
 
         <div className="grid gap-8 border-x border-b border-white/10 bg-[#1b0e09] px-6 py-8 md:grid-cols-[1fr_auto] md:items-center md:px-10 md:py-9">
           <p className="max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
-            From naturally textured Tasar to expressive Katha stitch, {siteData.company.name} brings authentic handloom craft into a modern wardrobe. Every piece carries the patience, skill, and story of the artisan who made it.
-            <br className="hidden md:block" /> <br className="hidden md:block" />
-            <span className="text-white/85 font-medium italic">Beyond our exquisite silk sarees, we also offer raw silk thaan (without print) and 100% pure authentic Murshidabad silk.</span>
+            Specialised primarily in <span className="text-white/95 font-medium">Murshidabad Silk printed saris & raw thaan, Bishnupuri Silk printed saris, Tasar gachi & kethe (printed & raw thaan), Garad saris, and Silk Matka printed sarees</span>, along with our secondary collection of authentic handcrafted <span className="text-white/95 font-medium">Katha stitch sarees</span>. Every piece carries the patience, skill, and living heritage of Bengal's master weavers.
           </p>
           <NavLink to="/about" className="inline-flex w-fit items-center gap-3 rounded-full bg-accent px-6 py-3.5 font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-white hover:text-primary md:justify-self-end">
             Read Our Story <ArrowRight className="h-5 w-5" />
@@ -260,7 +273,31 @@ export const ServicesGlimpse = () => (
 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <SectionHeading title="What We Offer" subtitle="Our Specialities" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+
+      {/* Primary Specialities Pills Ribbon */}
+      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-2.5 max-w-5xl mx-auto mt-6 mb-12 px-2">
+        <span className="text-accent font-bold text-xs uppercase tracking-widest bg-accent/10 px-3.5 py-1.5 rounded-full border border-accent/25">
+          Primary Specialities:
+        </span>
+        {[
+          "Murshidabad Silk Printed Saris & Raw Thaan",
+          "Bishnupuri Silk Printed Saris",
+          "Tasar Gachi Printed Saris & Raw Thaan",
+          "Tasar Kethe Printed Saris & Raw Thaan",
+          "Garad Saris",
+          "Silk Matka Printed Saree"
+        ].map((item, i) => (
+          <span 
+            key={i} 
+            className="px-3.5 py-1 rounded-full bg-white/90 border border-accent/20 text-primary text-xs font-medium shadow-xs flex items-center gap-1.5 hover:border-accent hover:text-accent transition-colors"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            {item}
+          </span>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {siteData.services.slice(0, 4).map((service, idx) => (
           <motion.div
             key={service.id}
@@ -268,18 +305,42 @@ export const ServicesGlimpse = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: idx * 0.15 }}
-            className="relative p-[2px] rounded-2xl overflow-hidden group shadow-[0_10px_30px_rgba(44,27,24,0.06)] hover:shadow-[0_20px_45px_rgba(44,27,24,0.12)] hover:-translate-y-2 transition-all duration-300 bg-white/95 backdrop-blur-sm border border-accent/15 hover:border-accent/40"
+            className="relative p-[2px] rounded-2xl overflow-hidden group shadow-[0_10px_30px_rgba(44,27,24,0.06)] hover:shadow-[0_20px_45px_rgba(44,27,24,0.12)] hover:-translate-y-2 transition-all duration-300 bg-white/95 backdrop-blur-sm border border-accent/15 hover:border-accent/40 flex flex-col"
           >
             {/* Animated Spinning Gradient Border */}
             <div className="absolute inset-[-150%] bg-[conic-gradient(from_90deg_at_50%_50%,#E57C22_0%,#ffffff_50%,#E57C22_100%)] animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             {/* Inner content covering the center */}
-            <div className="relative bg-white/95 backdrop-blur-md p-8 rounded-[14px] h-full z-10 flex flex-col items-start">
-              <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/30 rounded-xl flex items-center justify-center mb-6 text-accent font-bold text-xl group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-300 shadow-sm">
-                {idx + 1}
+            <div className="relative bg-white/95 backdrop-blur-md p-7 rounded-[14px] h-full z-10 flex flex-col items-start justify-between">
+              <div>
+                <div className="flex items-center justify-between w-full mb-5">
+                  <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/30 rounded-xl flex items-center justify-center text-accent font-bold text-xl group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-300 shadow-sm">
+                    0{idx + 1}
+                  </div>
+                  {service.badge && (
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${
+                      idx === 0 
+                        ? 'bg-accent/15 text-accent border-accent/30 font-extrabold' 
+                        : idx === 1 
+                          ? 'bg-primary/10 text-primary border-primary/20 font-bold' 
+                          : 'bg-gray-100 text-secondary/70 border-gray-200'
+                    }`}>
+                      {service.badge}
+                    </span>
+                  )}
+                </div>
+                <h3 className="text-xl font-heading font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-secondary/70 leading-relaxed text-sm">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="text-xl font-heading font-bold text-primary mb-3 group-hover:text-accent transition-colors">{service.title}</h3>
-              <p className="text-secondary/70 leading-relaxed">{service.description}</p>
+
+              <div className="w-full pt-4 mt-5 border-t border-accent/10 flex items-center justify-between text-xs text-accent font-semibold group-hover:translate-x-0.5 transition-transform">
+                <span>{idx === 0 ? "1st Priority Craft" : idx === 1 ? "2nd Priority Craft" : "Handcrafted"}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
             </div>
           </motion.div>
         ))}
@@ -353,7 +414,7 @@ const HomeProductCard = ({ product, idx, onQuickView }) => {
 
         {/* Content */}
         <div className="flex flex-col p-4 sm:p-5 flex-grow">
-          <h3 className="text-base sm:text-lg font-heading font-bold text-primary group-hover:text-accent transition-colors line-clamp-1 mb-1">
+          <h3 className="text-base sm:text-lg font-heading font-bold text-primary group-hover:text-accent transition-colors line-clamp-2 min-h-[2.8rem] leading-snug mb-1">
             {product.name}
           </h3>
           <p className="text-secondary/60 font-sans text-xs sm:text-sm line-clamp-2 mb-4">

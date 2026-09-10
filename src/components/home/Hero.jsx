@@ -24,17 +24,17 @@ const Hero = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-[#24140e] pt-20 md:pt-24">
-      <div className="relative mx-auto w-full overflow-hidden shadow-2xl group">
-        <AnimatePresence mode="wait">
+      <div className="relative mx-auto w-full overflow-hidden shadow-2xl group aspect-[16/6] md:aspect-auto md:h-[calc(100vh-96px)]">
+        <AnimatePresence initial={false}>
           <motion.img
             key={current}
             src={slides[current]}
             alt={`The Kamala Silks collection banner ${current + 1}`}
-            initial={{ opacity: 0, scale: 1.02 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: 'easeInOut' }}
-            className="block w-full h-auto object-contain md:h-[calc(100vh-96px)] md:object-cover md:object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </AnimatePresence>
 

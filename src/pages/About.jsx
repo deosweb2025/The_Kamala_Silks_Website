@@ -20,6 +20,7 @@ const About = () => {
     }, 2000);
     return () => clearInterval(timer);
   }, []);
+
   return (
     <div className="w-full">
       <PageHeader 
@@ -67,7 +68,7 @@ const About = () => {
                 {/* Highlight callout box */}
                 <div className="p-4 sm:p-5 rounded-2xl bg-accent/5 border border-accent/20 my-4">
                   <p className="text-sm sm:text-base text-secondary/90 leading-relaxed">
-                    Specializing in the intricate art of <strong className="text-primary font-semibold">Katha stitch</strong>, we work closely with skilled artisans to ensure every saree is a masterpiece. We also offer <strong className="text-primary font-semibold">raw silk thaan</strong> and 100% authentic <strong className="text-primary font-semibold">Murshidabad silk</strong>.
+                    We are specialised primarily in <strong className="text-primary font-semibold">Murshidabad Silk printed saris, Murshidabad Silk raw thaan, Bishnupuri Silk printed saris, Tasar gachi & kethe (printed saris & raw thaan), Garad saris</strong>, and <strong className="text-primary font-semibold">Silk Matka printed sarees</strong>, complemented by our secondary signature collection of authentic handcrafted <strong className="text-primary font-semibold">Katha stitch sarees</strong>.
                   </p>
                 </div>
 

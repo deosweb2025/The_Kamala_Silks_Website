@@ -51,24 +51,25 @@ const Services = () => {
             {[
               {
                 id: "s1",
-                title: "Premium Sarees",
-                description: "Exquisite collection of Silk, Tasar, and Matka sarees handwoven to perfection.",
-                tag: "Certified Pure Silk",
+                title: "Pure Silks & Raw Thaan",
+                description: "We are specialised in Murshidabad Silk printed saris, Murshidabad Silk raw thaan, Bishnupuri Silk printed saris, Tasar gachi printed saris and raw thaan, Tasar kethe printed saris and raw than, Garad saris, and Silk Matka Printed Sarees.",
+                tag: "Primary Speciality",
                 highlights: [
-                  "Pure Mulberry, Tasar & Matka Silk Weaves",
-                  "Natural Lustrous Sheen & Rich Heirloom Texture",
-                  "Certified Handloom Authenticity Guarantee"
+                  "Murshidabad Silk Printed Saris & Raw Thaan",
+                  "Bishnupuri Silk Printed Saris & Garad Saris",
+                  "Tasar Gachi & Kethe (Printed Saris & Raw Thaan)",
+                  "Silk Matka Printed Sarees"
                 ]
               },
               {
                 id: "s2",
-                title: "Katha Stitch",
-                description: "Authentic handcrafted Katha stitch sarees with intricate generational designs.",
-                tag: "Artisanal Kantha",
+                title: "Katha Stitch Sarees",
+                description: "Authentic handcrafted Katha stitch sarees featuring intricate generational needlework and storytelling motifs on pure handloom silk.",
+                tag: "Secondary Speciality",
                 highlights: [
                   "Generational Rural Bengal Needlework Heritage",
                   "Intricate Storytelling Folkloric Running Stitches",
-                  "Over 60+ Hours of Patient Hand-Stitching"
+                  "Over 60+ Hours of Patient Hand-Stitching per Piece"
                 ]
               },
               {

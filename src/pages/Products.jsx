@@ -65,7 +65,7 @@ const ProductCard = ({ product, idx, onQuickView }) => {
 
         {/* Content */}
         <div className="flex flex-col p-6 flex-grow">
-          <h3 className="text-lg font-heading font-bold text-primary group-hover:text-accent transition-colors line-clamp-1 mb-1">
+          <h3 className="text-lg font-heading font-bold text-primary group-hover:text-accent transition-colors line-clamp-2 min-h-[3.25rem] leading-snug mb-1">
             {product.name}
           </h3>
           <p className="text-secondary/60 font-sans text-sm line-clamp-2 mb-4">
