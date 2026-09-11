@@ -52,12 +52,12 @@ const Services = () => {
               {
                 id: "s1",
                 title: "Pure Silks & Raw Thaan",
-                description: "We are specialised in Murshidabad Silk printed saris, Murshidabad Silk raw thaan, Bishnupuri Silk printed saris, Tasar gachi printed saris and raw thaan, Tasar kethe printed saris and raw than, Garad saris, and Silk Matka Printed Sarees.",
+                description: "We are specialised in Murshidabad Silk printed saress, Murshidabad Silk raw thaan, Bishnupuri Silk printed saress, Tasar gachi printed saress and raw thaan, Tasar kethe printed saress and raw thaan, Garad saress, and Silk Matka Printed Sarees.",
                 tag: "Primary Speciality",
                 highlights: [
-                  "Murshidabad Silk Printed Saris & Raw Thaan",
-                  "Bishnupuri Silk Printed Saris & Garad Saris",
-                  "Tasar Gachi & Kethe (Printed Saris & Raw Thaan)",
+                  "Murshidabad Silk Printed saress & Raw Thaan",
+                  "Bishnupuri Silk Printed saress & Garad saress",
+                  "Tasar Gachi & Kethe (Printed saress & Raw Thaan)",
                   "Silk Matka Printed Sarees"
                 ]
               },

@@ -8,7 +8,7 @@ export const siteData = {
     tagline: "Handcrafted with Authenticity",
     description: "Premium handcrafted silk, tasar, matka, and katha stitch sarees, kurties, khadi, cotton shirts, raw silk thaan, and 100% pure authentic Murshidabad silk.",
     logo: "/logo.png",
-    manufacturerNote: "We are the sole manufacturers of all our saris starting from our experienced weavers weaving and stitching the threads to experienced printers printing the saris to give them an elegant look. From soil to garments, we are the pillars for exclusive Silk sarees. Being the manufacturers we provide the bestest quality of Silk Saris at a challenging cheapest rate.",
+    manufacturerNote: "We are the sole manufacturers of all our saris starting from our experienced weavers weaving and stitching the threads to experienced printers printing the saris to give them an elegant look. From soil to garments, we are the pillars for exclusive Silk sarees. Being the manufacturers we provide the best quality of Silk Saris at a challenging cheapest rate.",
   },
 
   navigation: [
@@ -22,7 +22,7 @@ export const siteData = {
 
   contact: {
     phone: "9434202637",
-    email: "jayantaswarnakar76@gmail.com",
+    email: "rhnswarnakar@gmail.com",
     whatsapp: "9475019835",
   },
 
@@ -251,7 +251,7 @@ export const siteData = {
     },
     {
       id: "p16",
-      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      name: "Double ply Hand batik print pure Murshidabad silk saree (with blouse piece)",
       category: "Saree",
       image: "/images/pic21.webp",
       description: "Authentic double ply hand batik print pure Murshidabad silk saree crafted with rich traditional artwork and matching blouse piece.",
@@ -262,7 +262,7 @@ export const siteData = {
     },
     {
       id: "p17",
-      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      name: "Double ply Hand batik print pure Murshidabad silk saree (with blouse piece)",
       category: "Saree",
       image: "/images/pic22.webp",
       description: "Artisanal hand batik print on pure Murshidabad double ply silk with vibrant motifs and natural luster.",
@@ -273,7 +273,7 @@ export const siteData = {
     },
     {
       id: "p18",
-      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      name: "Double ply Hand batik print pure Murshidabad silk saree (with blouse piece)",
       category: "Saree",
       image: "/images/pic23.webp",
       description: "Exquisite double ply pure Murshidabad silk saree with traditional hand batik craft and matching blouse piece.",
@@ -284,7 +284,7 @@ export const siteData = {
     },
     {
       id: "p19",
-      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      name: "Double ply Hand batik print pure Murshidabad silk saree (with blouse piece)",
       category: "Saree",
       image: "/images/pic24.webp",
       description: "Handcrafted double ply pure Murshidabad silk saree featuring intricate hand batik prints and heirloom texture.",
@@ -295,7 +295,7 @@ export const siteData = {
     },
     {
       id: "p20",
-      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      name: "Double ply Hand batik print pure Murshidabad silk saree (with blouse piece)",
       category: "Saree",
       image: "/images/pic25.webp",
       description: "Royal double ply pure Murshidabad silk saree with handcrafted batik artwork and matching blouse piece.",
@@ -306,7 +306,7 @@ export const siteData = {
     },
     {
       id: "p21",
-      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      name: "Double ply Hand batik print pure Murshidabad silk saree (with blouse piece)",
       category: "Saree",
       image: "/images/pic26.webp",
       description: "Vibrant double ply hand batik print pure Murshidabad silk saree tailored for festive elegance with matching blouse piece.",
@@ -317,7 +317,7 @@ export const siteData = {
     },
     {
       id: "p22",
-      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      name: "Double ply Hand batik print pure Murshidabad silk saree (with blouse piece)",
       category: "Saree",
       image: "/images/pic27.webp",
       description: "Masterpiece double ply hand batik printed pure Murshidabad silk saree with timeless drape and matching blouse piece.",

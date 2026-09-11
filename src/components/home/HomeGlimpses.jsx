@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, Award, ShieldCheck, Star, ShoppingBag, Eye, Check, MessageCircle } from 'lucide-react';
+import { ArrowRight, Award, ShieldCheck, Star, ShoppingBag, Eye, Check, MessageCircle, Sparkles } from 'lucide-react';
 import { siteData } from '../../data/siteData';
 import SectionHeading from '../common/SectionHeading';
 import ProductModal from '../common/ProductModal';
@@ -248,7 +248,7 @@ export const AboutGlimpse = () => {
 
         <div className="grid gap-8 border-x border-b border-white/10 bg-[#1b0e09] px-6 py-8 md:grid-cols-[1fr_auto] md:items-center md:px-10 md:py-9">
           <p className="max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
-            Specialised primarily in <span className="text-white/95 font-medium">Murshidabad Silk printed saris & raw thaan, Bishnupuri Silk printed saris, Tasar gachi & kethe (printed & raw thaan), Garad saris, and Silk Matka printed sarees</span>, along with our secondary collection of authentic handcrafted <span className="text-white/95 font-medium">Katha stitch sarees</span>. Every piece carries the patience, skill, and living heritage of Bengal's master weavers.
+            Specialised primarily in <span className="text-white/95 font-medium">Murshidabad Silk printed sarees & raw thaan, Bishnupuri Silk printed sarees, Tasar gachi & kethe (printed sarees & raw thaan), Garad sarees, and Silk Matka printed sarees</span>, along with our secondary collection of authentic handcrafted <span className="text-white/95 font-medium">Katha stitch sarees</span>. Every piece carries the patience, skill, and living heritage of Bengal's master weavers.
           </p>
           <NavLink to="/about" className="inline-flex w-fit items-center gap-3 rounded-full bg-accent px-6 py-3.5 font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-white hover:text-primary md:justify-self-end">
             Read Our Story <ArrowRight className="h-5 w-5" />
@@ -280,11 +280,11 @@ export const ServicesGlimpse = () => (
           Primary Specialities:
         </span>
         {[
-          "Murshidabad Silk Printed Saris & Raw Thaan",
-          "Bishnupuri Silk Printed Saris",
-          "Tasar Gachi Printed Saris & Raw Thaan",
-          "Tasar Kethe Printed Saris & Raw Thaan",
-          "Garad Saris",
+          "Murshidabad Silk Printed Sarees & Raw Thaan",
+          "Bishnupuri Silk Printed Sarees",
+          "Tasar Gachi Printed Sarees & Raw Thaan",
+          "Tasar Kethe Printed Sarees & Raw Thaan",
+          "Garad Sarees",
           "Silk Matka Printed Saree"
         ].map((item, i) => (
           <span 
@@ -501,6 +501,30 @@ export const ProductsGlimpse = () => {
     <section className="py-20 sm:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Featured Collection" subtitle="Our Best Sellers" />
+
+        {/* Direct Sole Manufacturer Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto -mt-2 mb-12 sm:mb-14 p-6 sm:p-8 rounded-3xl bg-white/95 backdrop-blur-md border border-accent/25 shadow-[0_10px_35px_rgba(44,27,24,0.06)] relative overflow-hidden text-center"
+        >
+          {/* Top gold line */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
+          
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent font-semibold text-xs tracking-wider uppercase mb-3">
+            <Sparkles className="w-3.5 h-3.5" /> Sole Manufacturers • Direct From Looms
+          </div>
+          
+          <h3 className="text-xl sm:text-2xl font-heading font-bold text-primary mb-3">
+            From Soil to Garments — Pillars for Exclusive Silk Sarees
+          </h3>
+          
+          <p className="text-secondary/85 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
+            We are the sole manufacturers of all our saris starting from our experienced weavers weaving and stitching the threads to experienced printers printing the saris to give them an elegant look. From soil to garments, we are the pillars for exclusive Silk sarees. Being the manufacturers we provide the best quality of Silk Saris at a challenging cheapest rate.
+          </p>
+        </motion.div>
 
         {/* Mobile: 1 product per view horizontal scroll snap slider. Desktop: 4-column grid */}
         <div
