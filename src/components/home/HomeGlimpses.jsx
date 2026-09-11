@@ -574,7 +574,7 @@ export const GalleryGlimpse = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white drop-shadow-lg">Gallery Glimpse</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {siteData.gallery.slice(0, 4).map((media, idx) => (
+          {siteData.gallery.slice(4, 8).map((media, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}

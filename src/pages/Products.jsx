@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Eye, Check, MessageCircle } from 'lucide-react';
+import { ShoppingBag, Eye, Check, MessageCircle, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '../components/common/PageHeader';
 import SectionHeading from '../components/common/SectionHeading';
@@ -146,6 +146,30 @@ const Products = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeading title="Premium Collection" subtitle="Authentic Handcrafted" />
+
+          {/* Direct Sole Manufacturer Statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto -mt-4 mb-14 p-6 sm:p-8 rounded-3xl bg-white/95 backdrop-blur-md border border-accent/25 shadow-[0_10px_35px_rgba(44,27,24,0.06)] relative overflow-hidden text-center"
+          >
+            {/* Top gold line */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
+            
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent font-semibold text-xs tracking-wider uppercase mb-3">
+              <Sparkles className="w-3.5 h-3.5" /> Sole Manufacturers • Direct From Looms
+            </div>
+            
+            <h3 className="text-xl sm:text-2xl font-heading font-bold text-primary mb-3">
+              From Soil to Garments — Pillars for Exclusive Silk Sarees
+            </h3>
+            
+            <p className="text-secondary/85 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
+              We are the sole manufactures of all our saris starting from our experienced weavers weaving and stitching the threads to experienced printers printing the saris to give them an elegant look. From soil to garments, we are the pillars for exclusive Silk sarees. Being the manufacturers we provide the bestest quality of Silk Saris at a challanging cheapest rate.
+            </p>
+          </motion.div>
 
           {/* Category Filter */}
           <div className="flex justify-center flex-wrap gap-3 mb-16">

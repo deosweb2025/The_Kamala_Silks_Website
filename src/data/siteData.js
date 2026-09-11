@@ -8,6 +8,7 @@ export const siteData = {
     tagline: "Handcrafted with Authenticity",
     description: "Premium handcrafted silk, tasar, matka, and katha stitch sarees, kurties, khadi, cotton shirts, raw silk thaan, and 100% pure authentic Murshidabad silk.",
     logo: "/logo.png",
+    manufacturerNote: "We are the sole manufacturers of all our saris starting from our experienced weavers weaving and stitching the threads to experienced printers printing the saris to give them an elegant look. From soil to garments, we are the pillars for exclusive Silk sarees. Being the manufacturers we provide the bestest quality of Silk Saris at a challenging cheapest rate.",
   },
 
   navigation: [
@@ -101,7 +102,7 @@ export const siteData = {
       image: "/images/pic2.webp",
       description: "Exquisite double ply silk kethe sari for special occasions with authentic handwork.",
       fabric: "Double Ply Silk Kethe",
-      dimensions: "6.5 Meters (with blouse piece)",
+      dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹4600"
     },
@@ -123,7 +124,7 @@ export const siteData = {
       image: "/images/pic4.webp",
       description: "Comfortable and opulent double ply pure Murshidabad silk sari with matching blouse piece.",
       fabric: "Double Ply Pure Murshidabad Silk",
-      dimensions: "6.5 Meters (with blouse piece)",
+      dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹4000"
     },
@@ -134,7 +135,7 @@ export const siteData = {
       image: "/images/pic5.webp",
       description: "A beautiful addition to your wardrobe in double ply pure Murshidabad silk.",
       fabric: "Double Ply Pure Murshidabad Silk",
-      dimensions: "6.5 Meters (with blouse piece)",
+      dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹4000"
     },
@@ -145,7 +146,7 @@ export const siteData = {
       image: "/images/pic6.webp",
       description: "Perfect for any festive occasion, crafted in pure double ply Murshidabad silk.",
       fabric: "Double Ply Pure Murshidabad Silk",
-      dimensions: "6.5 Meters (with blouse piece)",
+      dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹4000"
     },
@@ -167,7 +168,7 @@ export const siteData = {
       image: "/images/pic8.webp",
       description: "Woven with precision and care in double ply pure Murshidabad silk.",
       fabric: "Double Ply Pure Murshidabad Silk",
-      dimensions: "6.5 Meters (with blouse piece)",
+      dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹4000"
     },
@@ -178,7 +179,7 @@ export const siteData = {
       image: "/images/pic9.webp",
       description: "A fine example of handwoven heritage double ply pure Murshidabad silk.",
       fabric: "Double Ply Pure Murshidabad Silk",
-      dimensions: "6.5 Meters (with blouse piece)",
+      dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹4000"
     },
@@ -200,9 +201,130 @@ export const siteData = {
       image: "/images/pic16.webp",
       description: "Exquisite double ply pure Murshidabad silk sari that makes a royal statement.",
       fabric: "Double Ply Pure Murshidabad Silk",
-      dimensions: "6.5 Meters (with blouse piece)",
+      dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹4000"
+    },
+    {
+      id: "p12",
+      name: "Pure Silk Shirt",
+      category: "Shirt",
+      image: "/images/pic17.webp",
+      description: "Premium pure silk shirt tailored for all-day breathability, effortless elegance, and timeless comfort.",
+      fabric: "100% Pure Silk",
+      dimensions: "Standard Tailored Fit (M, L, XL, XXL)",
+      care: "Gentle hand wash / Dry clean",
+      price: "₹1500"
+    },
+    {
+      id: "p13",
+      name: "Pure Silk Shirt",
+      category: "Shirt",
+      image: "/images/pic18.webp",
+      description: "Handcrafted pure silk shirt tailored from fine handloom silk yarns with a smooth, regal finish.",
+      fabric: "100% Pure Silk",
+      dimensions: "Standard Tailored Fit (M, L, XL, XXL)",
+      care: "Gentle hand wash / Dry clean",
+      price: "₹1500"
+    },
+    {
+      id: "p14",
+      name: "Double ply Silk Kethe Sari (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic19.webp",
+      description: "Authentic double ply silk kethe sari featuring handcrafted needlework and running stitch motifs with matching blouse piece.",
+      fabric: "Double Ply Silk Kethe",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4600"
+    },
+    {
+      id: "p15",
+      name: "Double ply Silk Kethe Sari (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic20.webp",
+      description: "Exquisite double ply silk kethe sari woven with precision and heritage elegance with matching blouse piece.",
+      fabric: "Double Ply Silk Kethe",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4600"
+    },
+    {
+      id: "p16",
+      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic21.webp",
+      description: "Authentic double ply hand batik print pure Murshidabad silk saree crafted with rich traditional artwork and matching blouse piece.",
+      fabric: "Double Ply Pure Murshidabad Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4400"
+    },
+    {
+      id: "p17",
+      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic22.webp",
+      description: "Artisanal hand batik print on pure Murshidabad double ply silk with vibrant motifs and natural luster.",
+      fabric: "Double Ply Pure Murshidabad Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4400"
+    },
+    {
+      id: "p18",
+      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic23.webp",
+      description: "Exquisite double ply pure Murshidabad silk saree with traditional hand batik craft and matching blouse piece.",
+      fabric: "Double Ply Pure Murshidabad Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4400"
+    },
+    {
+      id: "p19",
+      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic24.webp",
+      description: "Handcrafted double ply pure Murshidabad silk saree featuring intricate hand batik prints and heirloom texture.",
+      fabric: "Double Ply Pure Murshidabad Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4400"
+    },
+    {
+      id: "p20",
+      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic25.webp",
+      description: "Royal double ply pure Murshidabad silk saree with handcrafted batik artwork and matching blouse piece.",
+      fabric: "Double Ply Pure Murshidabad Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4400"
+    },
+    {
+      id: "p21",
+      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic26.webp",
+      description: "Vibrant double ply hand batik print pure Murshidabad silk saree tailored for festive elegance with matching blouse piece.",
+      fabric: "Double Ply Pure Murshidabad Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4400"
+    },
+    {
+      id: "p22",
+      name: "Double ply Hand buttick print pure Murshidabad silk saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic27.webp",
+      description: "Masterpiece double ply hand batik printed pure Murshidabad silk saree with timeless drape and matching blouse piece.",
+      fabric: "Double Ply Pure Murshidabad Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4400"
     }
   ],
 
@@ -222,6 +344,18 @@ export const siteData = {
     { type: "image", src: "/images/pic13.webp" },
     { type: "image", src: "/images/pic14.webp" },
     { type: "image", src: "/images/pic15.webp" },
+    { type: "image", src: "/images/pic16.webp" },
+    { type: "image", src: "/images/pic17.webp" },
+    { type: "image", src: "/images/pic18.webp" },
+    { type: "image", src: "/images/pic19.webp" },
+    { type: "image", src: "/images/pic20.webp" },
+    { type: "image", src: "/images/pic21.webp" },
+    { type: "image", src: "/images/pic22.webp" },
+    { type: "image", src: "/images/pic23.webp" },
+    { type: "image", src: "/images/pic24.webp" },
+    { type: "image", src: "/images/pic25.webp" },
+    { type: "image", src: "/images/pic26.webp" },
+    { type: "image", src: "/images/pic27.webp" },
     { type: "video", src: "/videos/video1.mp4" },
     { type: "video", src: "/videos/videos2.mp4" },
     { type: "video", src: "/videos/videos3.mp4" },
