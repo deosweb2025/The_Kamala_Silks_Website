@@ -38,7 +38,7 @@ export const siteData = {
 
   social: {
     instagram: "#",
-    facebook: "#",
+    facebook: "https://www.facebook.com/profile.php?id=61594377927252",
     youtube: "#",
   },
 
@@ -47,14 +47,14 @@ export const siteData = {
       id: "s1",
       title: "Pure Silks & Raw Thaan",
       badge: "Primary Speciality",
-      description: "Specialised in Murshidabad Silk printed sareess, Murshidabad Silk raw thaan, Bishnupuri Silk printed sareess, Tasar gachi printed sareess & raw thaan, Tasar kethe printed sareess & raw thaan, Garad sareess, and Silk Matka Printed Sarees.",
+      description: "Specialised in Murshidabad Silk printed sarees, Murshidabad Silk raw thaan, Bishnupuri Silk printed sarees, Tasar gachi printed sarees & raw thaan, Tasar kethe printed sarees & raw thaan, Garad sarees, and Silk Matka Printed Sarees.",
       items: [
-        "Murshidabad Silk printed sareess",
+        "Murshidabad Silk printed sarees",
         "Murshidabad Silk raw thaan",
-        "Bishnupuri Silk printed sareess",
-        "Tasar gachi printed sareess and raw thaan",
-        "Tasar kethe printed sareess and raw thaan",
-        "Garad sareess",
+        "Bishnupuri Silk printed sarees",
+        "Tasar gachi printed sarees and raw thaan",
+        "Tasar kethe printed sarees and raw thaan",
+        "Garad sarees",
         "Silk Matka Printed Saree"
       ]
     },
