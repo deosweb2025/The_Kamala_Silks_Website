@@ -37,7 +37,7 @@ export const siteData = {
   ],
 
   social: {
-    instagram: "#",
+    instagram: "https://www.instagram.com/kamalasilks350/",
     facebook: "https://www.facebook.com/profile.php?id=61594377927252",
     youtube: "#",
   },
