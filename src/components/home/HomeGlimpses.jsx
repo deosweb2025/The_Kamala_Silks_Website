@@ -522,7 +522,7 @@ export const ProductsGlimpse = () => {
           </h3>
           
           <p className="text-secondary/85 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
-            We are the sole manufacturers of all our saris starting from our experienced weavers weaving and stitching the threads to experienced printers printing the saris to give them an elegant look. From soil to garments, we are the pillars for exclusive Silk sarees. Being the manufacturers we provide the best quality of Silk Saris at a challenging cheapest rate.
+            We are the sole manufacturers of all our sareess starting from our experienced weavers weaving and stitching the threads to experienced printers printing the sareess to give them an elegant look. From soil to garments, we are the pillars for exclusive Silk sarees. Being the manufacturers we provide the best quality of Silk sareess at a challenging cheapest rate.
           </p>
         </motion.div>
 
