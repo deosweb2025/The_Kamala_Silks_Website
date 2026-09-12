@@ -7,7 +7,7 @@ export const siteData = {
     name: "The Kamala Silks",
     tagline: "Handcrafted with Authenticity",
     description: "Premium handcrafted silk, tasar, matka, and katha stitch sarees, kurties, khadi, cotton shirts, raw silk thaan, and 100% pure authentic Murshidabad silk.",
-    logo: "/logo.png",
+    logo: "/logo.jpeg",
     manufacturerNote: "We are the sole manufacturers of all our sareess starting from our experienced weavers weaving and stitching the threads to experienced printers printing the sareess to give them an elegant look. From soil to garments, we are the pillars for exclusive Silk sarees. Being the manufacturers we provide the best quality of Silk sareess at a challenging cheapest rate.",
   },
 
