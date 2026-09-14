@@ -457,6 +457,17 @@ export const siteData = {
       dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹4800"
+    },
+    {
+      id: "p35",
+      name: "Jori Tasar with block print (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic40.webp",
+      description: "Graceful pure Jori Tasar silk saree adorned with handcrafted block prints, regal texture, and matching blouse piece.",
+      fabric: "Pure Jori Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹5200"
     }
   ],
 
@@ -500,6 +511,7 @@ export const siteData = {
     { type: "image", src: "/images/pic37.webp" },
     { type: "image", src: "/images/pic38.webp" },
     { type: "image", src: "/images/pic39.webp" },
+    { type: "image", src: "/images/pic40.webp" },
     { type: "video", src: "/videos/video1.mp4" },
     { type: "video", src: "/videos/videos2.mp4" },
     { type: "video", src: "/videos/videos3.mp4" },
@@ -525,6 +537,7 @@ export const siteData = {
     { type: "video", src: "/videos/videos29.mp4" },
     { type: "video", src: "/videos/videos30.mp4" },
     { type: "video", src: "/videos/videos31.mp4" },
+    { type: "video", src: "/videos/videos32.mp4" },
   ],
   
   heroSlides: [
