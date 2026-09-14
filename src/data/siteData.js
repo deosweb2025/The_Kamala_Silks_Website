@@ -413,6 +413,50 @@ export const siteData = {
       dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹4400"
+    },
+    {
+      id: "p31",
+      name: "Gachi Tasar acid hand print saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic36.webp",
+      description: "Authentic pure Gachi Tasar silk saree adorned with intricate acid hand print artwork, rich texture, and matching blouse piece.",
+      fabric: "Pure Gachi Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4800"
+    },
+    {
+      id: "p32",
+      name: "Gachi Tasar acid hand print saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic37.webp",
+      description: "Artisanal Gachi Tasar silk saree featuring vibrant acid hand block motifs and organic handloom sheen, complete with matching blouse piece.",
+      fabric: "Pure Gachi Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4800"
+    },
+    {
+      id: "p33",
+      name: "Gachi Tasar acid hand print saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic38.webp",
+      description: "Traditional pure Gachi Tasar acid hand printed saree handwoven by master weavers with timeless elegance and matching blouse piece.",
+      fabric: "Pure Gachi Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4800"
+    },
+    {
+      id: "p34",
+      name: "Gachi Tasar acid hand print saree (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic39.webp",
+      description: "Exquisite hand-printed pure Gachi Tasar saree celebrated for its natural golden hue, artisanal motifs, and matching blouse piece.",
+      fabric: "Pure Gachi Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4800"
     }
   ],
 
@@ -452,6 +496,10 @@ export const siteData = {
     { type: "image", src: "/images/pic33.webp" },
     { type: "image", src: "/images/pic34.webp" },
     { type: "image", src: "/images/pic35.webp" },
+    { type: "image", src: "/images/pic36.webp" },
+    { type: "image", src: "/images/pic37.webp" },
+    { type: "image", src: "/images/pic38.webp" },
+    { type: "image", src: "/images/pic39.webp" },
     { type: "video", src: "/videos/video1.mp4" },
     { type: "video", src: "/videos/videos2.mp4" },
     { type: "video", src: "/videos/videos3.mp4" },
@@ -473,6 +521,10 @@ export const siteData = {
     { type: "video", src: "/videos/videos25.mp4" },
     { type: "video", src: "/videos/videos26.mp4" },
     { type: "video", src: "/videos/videos27.mp4" },
+    { type: "video", src: "/videos/videos28.mp4" },
+    { type: "video", src: "/videos/videos29.mp4" },
+    { type: "video", src: "/videos/videos30.mp4" },
+    { type: "video", src: "/videos/videos31.mp4" },
   ],
   
   heroSlides: [
