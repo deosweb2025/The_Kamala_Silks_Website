@@ -83,6 +83,8 @@ export const siteData = {
     }
   ],
 
+  featuredProductIds: ["p1", "p2", "p22", "p26"],
+
   products: [
     {
       id: "p1",
@@ -468,6 +470,61 @@ export const siteData = {
       dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
       price: "₹5200"
+    },
+    {
+      id: "p36",
+      name: "Gachi Tasar Block print sari (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic41.webp",
+      description: "Traditional pure Gachi Tasar silk saree decorated with artistic hand block prints, earthy luster, and matching blouse piece.",
+      fabric: "Pure Gachi Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4800"
+    },
+    {
+      id: "p37",
+      name: "Gachi Tasar Block print sari (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic42.webp",
+      description: "Exquisite hand block printed pure Gachi Tasar silk saree featuring timeless ethnic motifs and matching blouse piece.",
+      fabric: "Pure Gachi Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4800"
+    },
+    {
+      id: "p38",
+      name: "Gachi Tasar Block print sari (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic43.webp",
+      description: "Authentic Gachi Tasar silk saree adorned with intricate hand block prints, natural golden sheen, and matching blouse piece.",
+      fabric: "Pure Gachi Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4800"
+    },
+    {
+      id: "p39",
+      name: "Gachi Tasar Block print sari (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic44.webp",
+      description: "Artisanal block-printed pure Gachi Tasar silk saree woven with generational heritage and complete with matching blouse piece.",
+      fabric: "Pure Gachi Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4800"
+    },
+    {
+      id: "p40",
+      name: "Gachi Tasar Block print sari (with blouse piece)",
+      category: "Saree",
+      image: "/images/pic45.webp",
+      description: "Masterpiece pure Gachi Tasar silk saree featuring rich hand block printed patterns, regal drape, and matching blouse piece.",
+      fabric: "Pure Gachi Tasar Silk",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹4800"
     }
   ],
 
@@ -512,6 +569,11 @@ export const siteData = {
     { type: "image", src: "/images/pic38.webp" },
     { type: "image", src: "/images/pic39.webp" },
     { type: "image", src: "/images/pic40.webp" },
+    { type: "image", src: "/images/pic41.webp" },
+    { type: "image", src: "/images/pic42.webp" },
+    { type: "image", src: "/images/pic43.webp" },
+    { type: "image", src: "/images/pic44.webp" },
+    { type: "image", src: "/images/pic45.webp" },
     { type: "video", src: "/videos/video1.mp4" },
     { type: "video", src: "/videos/videos2.mp4" },
     { type: "video", src: "/videos/videos3.mp4" },
@@ -538,6 +600,11 @@ export const siteData = {
     { type: "video", src: "/videos/videos30.mp4" },
     { type: "video", src: "/videos/videos31.mp4" },
     { type: "video", src: "/videos/videos32.mp4" },
+    { type: "video", src: "/videos/videos33.mp4" },
+    { type: "video", src: "/videos/videos34.mp4" },
+    { type: "video", src: "/videos/videos35.mp4" },
+    { type: "video", src: "/videos/videos36.mp4" },
+    { type: "video", src: "/videos/videos37.mp4" },
   ],
   
   heroSlides: [

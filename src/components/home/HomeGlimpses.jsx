@@ -473,7 +473,10 @@ export const ProductsGlimpse = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const scrollRef = useRef(null);
-  const products = siteData.products.slice(0, 4);
+  const featuredIds = siteData.featuredProductIds || ["p1", "p2", "p22", "p26"];
+  const products = featuredIds
+    .map((id) => siteData.products.find((p) => p.id === id))
+    .filter(Boolean);
 
   const handleScroll = () => {
     if (scrollRef.current) {
