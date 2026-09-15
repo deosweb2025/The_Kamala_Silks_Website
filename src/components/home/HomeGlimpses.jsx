@@ -6,8 +6,8 @@ import { siteData } from '../../data/siteData';
 import SectionHeading from '../common/SectionHeading';
 import ProductModal from '../common/ProductModal';
 import certificatePng from '../../assets/images/certificate.webp';
-import posterImage from '../../assets/images/poster image.webp';
-import posterImageTwo from '../../assets/images/poster image 2.webp';
+import posterImage from '../../assets/images/poster image.png';
+import posterImageTwo from '../../assets/images/poster image 2.png';
 import { useCart } from '../../context/CartContext';
 
 // Trust / Certificate Banner

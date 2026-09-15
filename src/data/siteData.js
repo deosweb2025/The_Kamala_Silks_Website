@@ -1,6 +1,6 @@
-import heroBannerOne from '../assets/images/hero banner image.webp';
-import heroBannerTwo from '../assets/images/hero banner image 2.webp';
-import heroBannerThree from '../assets/images/hero banner image 3.webp';
+import heroBannerOne from '../assets/images/hero banner image.png';
+import heroBannerTwo from '../assets/images/hero banner image 2.png';
+import heroBannerThree from '../assets/images/hero banner image 3.png';
 
 export const siteData = {
   company: {
