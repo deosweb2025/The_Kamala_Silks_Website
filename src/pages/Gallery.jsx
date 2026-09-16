@@ -51,22 +51,25 @@ const Gallery = () => {
           <SectionHeading title="Visual Showcase" subtitle="Moments & Craft" />
           
           {/* Primary Media Type Filters */}
-          <div className="flex justify-center items-center gap-1.5 sm:gap-3 mb-8 w-full max-w-full px-1">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-8 w-full max-w-sm sm:max-w-md mx-auto px-2">
             {[
-              { id: 'all', label: 'All Media', count: siteData.gallery.length },
-              { id: 'image', label: 'Images', count: siteData.gallery.filter(m => m.type === 'image').length },
-              { id: 'video', label: 'Videos', count: siteData.gallery.filter(m => m.type === 'video').length },
+              { id: 'all', shortLabel: 'All', label: 'All Media', count: siteData.gallery.length },
+              { id: 'image', shortLabel: 'Images', label: 'Images', count: siteData.gallery.filter(m => m.type === 'image').length },
+              { id: 'video', shortLabel: 'Videos', label: 'Videos', count: siteData.gallery.filter(m => m.type === 'video').length },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setMediaFilter(tab.id)}
-                className={`inline-flex items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 whitespace-nowrap shrink-0 ${
+                className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 whitespace-nowrap select-none ${
                   mediaFilter === tab.id 
                     ? 'bg-primary text-white shadow-md shadow-primary/25 sm:scale-105' 
                     : 'bg-white text-secondary/80 hover:bg-gray-100 border border-gray-200 shadow-sm'
                 }`}
               >
-                <span>{tab.label}</span>
+                <span>
+                  <span className="sm:hidden">{tab.shortLabel}</span>
+                  <span className="hidden sm:inline">{tab.label}</span>
+                </span>
                 <span className={`text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-mono font-bold shrink-0 ${
                   mediaFilter === tab.id ? 'bg-white/25 text-white' : 'bg-gray-100 text-secondary/60'
                 }`}>
