@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Check, ArrowRight } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import SectionHeading from '../components/common/SectionHeading';
-import { siteData } from '../data/siteData';
 
 const customOrderImages = [
   { src: "/images/pic4.webp", alt: "Handcrafted Nature Landscape Silk Saree" },

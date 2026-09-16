@@ -1,7 +1,6 @@
-import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Trash2, Plus, Minus, X, MessageCircle, PackageOpen } from 'lucide-react';
+import { Trash2, Plus, Minus, X, MessageCircle, PackageOpen } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import PageHeader from '../components/common/PageHeader';
 

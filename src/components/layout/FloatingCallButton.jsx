@@ -1,4 +1,3 @@
-import React from 'react';
 import { Phone } from 'lucide-react';
 import { siteData } from '../../data/siteData';
 

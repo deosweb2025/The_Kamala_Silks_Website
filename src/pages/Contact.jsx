@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, User, AtSign, PhoneCall, Tag, ShoppingBag, Ruler, MessageSquare, Send } from 'lucide-react';
@@ -21,27 +21,30 @@ const Field = ({ label, icon: Icon, children }) => (
 );
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const location = useLocation();
+  const productQuery = new URLSearchParams(location.search).get('product') || '';
+
+  const [formData, setFormData] = useState(() => ({
     name: '',
     email: '',
     phone: '',
     city: '',
-    productInterest: '',
+    productInterest: productQuery,
     occasion: '',
     budget: '',
     preferredContact: 'WhatsApp',
     enquiry: '',
-  });
+  }));
   const [submitted, setSubmitted] = useState(false);
-  const location = useLocation();
 
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const productQuery = params.get('product');
+  // Sync if query parameter updates on navigation
+  const [prevProductQuery, setPrevProductQuery] = useState(productQuery);
+  if (prevProductQuery !== productQuery) {
+    setPrevProductQuery(productQuery);
     if (productQuery) {
       setFormData(prev => ({ ...prev, productInterest: productQuery }));
     }
-  }, [location]);
+  }
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

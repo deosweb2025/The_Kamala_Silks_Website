@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { siteData } from '../../data/siteData';
 import { MapPin, Phone, Mail } from 'lucide-react';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { Sparkles, ChevronRight } from 'lucide-react';

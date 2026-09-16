@@ -355,7 +355,7 @@ export const ServicesGlimpse = () => (
 );
 
 // Home Product Card (self-contained with add-to-cart)
-const HomeProductCard = ({ product, idx, onQuickView }) => {
+const HomeProductCard = ({ product, idx = 0, onQuickView }) => {
   const { addToCart } = useCart();
   const [addedToCart, setAddedToCart] = useState(false);
 
@@ -366,43 +366,42 @@ const HomeProductCard = ({ product, idx, onQuickView }) => {
     setTimeout(() => setAddedToCart(false), 2500);
   };
 
+  const isEager = idx < 4;
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className="group relative p-[2px] rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col hover:-translate-y-2 w-full bg-white"
+    <div
+      className="group relative p-[2px] rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col md:hover:-translate-y-2 w-full bg-white will-change-transform"
     >
-      {/* Animated Spinning Gradient Border */}
-      <div className="absolute inset-[-150%] bg-[conic-gradient(from_90deg_at_50%_50%,#E57C22_0%,#ffffff_50%,#E57C22_100%)] animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
+      {/* Animated Spinning Gradient Border (desktop hover only) */}
+      <div className="hidden md:block absolute inset-[-150%] bg-[conic-gradient(from_90deg_at_50%_50%,#E57C22_0%,#ffffff_50%,#E57C22_100%)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_4s_linear_infinite] transition-opacity duration-300 pointer-events-none z-0" />
 
       {/* Inner Content Covering Center */}
       <div className="relative bg-white rounded-[22px] flex flex-col h-full overflow-hidden z-10">
         {/* Image */}
         <div
-          className="overflow-hidden relative aspect-[4/5] flex-shrink-0 cursor-pointer"
+          className="overflow-hidden relative aspect-[4/5] flex-shrink-0 cursor-pointer bg-stone-100"
           onClick={() => onQuickView(product)}
         >
           <img
             src={product.image}
             alt={product.name}
-            loading="lazy"
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            loading={isEager ? "eager" : "lazy"}
+            fetchPriority={isEager ? "high" : "auto"}
+            className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-500"
           />
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+          {/* Overlay (desktop hover only) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
 
           {/* Category badge */}
-          <div className="absolute top-3 left-3">
-            <span className="bg-white/90 backdrop-blur-sm text-accent text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full shadow">
+          <div className="absolute top-3 left-3 max-w-[85%]">
+            <span className="bg-white/95 backdrop-blur-sm text-accent text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow block truncate border border-accent/20">
               {product.category}
             </span>
           </div>
 
-          {/* Quick View button */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+          {/* Quick View button (desktop hover only) */}
+          <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
             <button
               onClick={(e) => { e.stopPropagation(); onQuickView(product); }}
               className="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/50 px-4 py-2 rounded-full font-semibold text-sm -translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-xl"
@@ -421,50 +420,50 @@ const HomeProductCard = ({ product, idx, onQuickView }) => {
             {product.description}
           </p>
 
-        {/* Price & Courier Info */}
-        <div className="mb-4 mt-auto flex flex-col gap-1.5">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-accent font-sans bg-accent/10 px-2.5 py-1 rounded-full">
-              {product.price ? product.price : "Contact for Price"}
-            </span>
-            {product.fabric && (
-              <span className="text-[10px] text-secondary/40 font-sans truncate max-w-[80px]">{product.fabric}</span>
-            )}
+          {/* Price & Courier Info */}
+          <div className="mb-4 mt-auto flex flex-col gap-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-accent font-sans bg-accent/10 px-2.5 py-1 rounded-full">
+                {product.price ? product.price : "Contact for Price"}
+              </span>
+              {product.fabric && (
+                <span className="text-[10px] text-secondary/40 font-sans truncate max-w-[80px]">{product.fabric}</span>
+              )}
+            </div>
+            <span className="text-[9px] text-secondary/40 italic leading-tight">*Courier charges applicable as per destinations</span>
           </div>
-          <span className="text-[9px] text-secondary/40 italic leading-tight">*Courier charges applicable as per destinations</span>
-        </div>
 
-        {/* Action buttons */}
-        <div className="flex gap-2">
-          <button
-            onClick={handleAddToCart}
-            disabled={addedToCart}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
-              addedToCart
-                ? 'bg-green-500 text-white shadow-lg shadow-green-500/30'
-                : 'bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg hover:shadow-primary/25'
-            }`}
-          >
-            {addedToCart
-              ? <><Check className="w-3.5 h-3.5" /> Added!</>
-              : <><ShoppingBag className="w-3.5 h-3.5" /> Add to Cart</>
-            }
-          </button>
+          {/* Action buttons */}
+          <div className="flex gap-2">
+            <button
+              onClick={handleAddToCart}
+              disabled={addedToCart}
+              className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
+                addedToCart
+                  ? 'bg-green-500 text-white shadow-lg shadow-green-500/30'
+                  : 'bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg hover:shadow-primary/25'
+              }`}
+            >
+              {addedToCart
+                ? <><Check className="w-3.5 h-3.5" /> Added!</>
+                : <><ShoppingBag className="w-3.5 h-3.5" /> Add to Cart</>
+              }
+            </button>
 
-          <a
-            href={`https://wa.me/919475019835?text=${encodeURIComponent(`Hi, I'm interested in ${product.name}. Can you share price & details?`)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-300 shadow-sm border border-[#25D366]/30 shrink-0"
-            title="WhatsApp"
-          >
-            <MessageCircle className="w-4 h-4" />
-          </a>
-        </div>
+            <a
+              href={`https://wa.me/919475019835?text=${encodeURIComponent(`Hi, I'm interested in ${product.name}. Can you share price & details?`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-300 shadow-sm border border-[#25D366]/30 shrink-0"
+              title="WhatsApp"
+            >
+              <MessageCircle className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

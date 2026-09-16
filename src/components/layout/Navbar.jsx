@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ShoppingBag } from 'lucide-react';
@@ -9,9 +9,16 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
   const location = useLocation();
   const { totalItems } = useCart();
+
+  // Reset mobile drawer upon route change during render
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
+  if (prevPathname !== location.pathname) {
+    setPrevPathname(location.pathname);
+    setIsMobileMenuOpen(false);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,27 +29,26 @@ const Navbar = () => {
 
       // Flexible smart scroll behavior for both mobile and laptop/desktop views
       // Hides on scroll down to maximize screen space, reveals immediately on scroll up
+      const delta = currentScrollY - lastScrollYRef.current;
+
+      // Only toggle visibility if scrolled past threshold to prevent jitter / blinking
       if (currentScrollY <= 20) {
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 60) {
-        if (!isMobileMenuOpen) {
-          setIsVisible(false);
+      } else if (Math.abs(delta) >= 12) {
+        if (delta > 0 && currentScrollY > 80) {
+          if (!isMobileMenuOpen) {
+            setIsVisible(false);
+          }
+        } else if (delta < 0) {
+          setIsVisible(true);
         }
-      } else if (currentScrollY < lastScrollY) {
-        setIsVisible(true);
+        lastScrollYRef.current = currentScrollY;
       }
-
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, isMobileMenuOpen]);
-
-  // Close mobile drawer on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+  }, [isMobileMenuOpen]);
 
   const isDark = !isScrolled && !isMobileMenuOpen;
 
