@@ -88,10 +88,31 @@ const ProductModal = ({ isOpen, onClose, product, type = "product" }) => {
             <div className="w-full md:w-1/2 bg-neutral-950 flex items-center justify-center relative h-[320px] sm:h-[380px] md:h-auto md:min-h-[500px]">
               {type === "gallery" && product.type === "video" ? (
                 <video 
+                  ref={(el) => { 
+                    if (el) {
+                      el.muted = true;
+                      el.volume = 0;
+                    }
+                  }}
+                  onVolumeChange={(e) => {
+                    e.target.muted = true;
+                    e.target.volume = 0;
+                  }}
+                  onPlay={(e) => {
+                    e.target.muted = true;
+                    e.target.volume = 0;
+                  }}
+                  onLoadedMetadata={(e) => {
+                    e.target.muted = true;
+                    e.target.volume = 0;
+                  }}
                   src={product.src} 
                   className="w-full h-full object-contain max-h-[45vh] md:max-h-[80vh]"
                   controls 
+                  controlsList="nodownload"
                   autoPlay
+                  muted
+                  defaultMuted
                   playsInline
                   preload="metadata"
                 />

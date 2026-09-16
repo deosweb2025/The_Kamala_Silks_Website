@@ -48,3 +48,10 @@
     display: none;
   }
 }
+
+/* Permanently hide volume and unmute controls across all video elements */
+video::-webkit-media-controls-volume-control-container,
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-volume-slider {
+  display: none !important;
+}

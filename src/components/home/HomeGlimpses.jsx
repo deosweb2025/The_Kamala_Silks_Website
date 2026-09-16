@@ -611,7 +611,7 @@ export const GalleryGlimpse = () => {
               onClick={() => setSelectedImage(media)}
             >
               {media.type === "video" ? (
-                <video src={media.src} className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700" muted loop playsInline />
+                <video src={media.src} className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700" muted defaultMuted loop playsInline />
               ) : (
                 <img src={media.src} alt={`Gallery ${idx + 1}`} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700" />
               )}
