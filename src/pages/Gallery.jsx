@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Eye, Move, MessageCircle } from 'lucide-react';
+import { Play, Eye, ZoomIn, MessageCircle } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import SectionHeading from '../components/common/SectionHeading';
 import ProductModal from '../components/common/ProductModal';
@@ -167,7 +167,7 @@ const Gallery = () => {
                   {media.type === "image" && (
                     <div className="absolute bottom-3 right-3 z-10 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       <span className="bg-black/60 backdrop-blur-md text-white text-[10px] font-medium px-2 py-1 rounded-full flex items-center gap-1 border border-white/20">
-                        <Move className="w-3 h-3 text-amber-400" /> Move & Zoom
+                        <ZoomIn className="w-3 h-3 text-amber-400" /> Zoom & Inspect
                       </span>
                     </div>
                   )}

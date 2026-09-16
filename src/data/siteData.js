@@ -778,6 +778,61 @@ export const siteData = {
       dimensions: "5.5 Meters (without blouse piece)",
       care: "Dry clean only",
       price: "₹6600"
+    },
+    {
+      id: "p64",
+      name: "Rust Orange Handcrafted Katha Stitch Silk Saree (with blouse piece)",
+      category: "Katha Stitch Saris",
+      image: "/images/pic11.webp",
+      description: "Authentic handcrafted Katha / Kathe stitch pure handloom silk saree featuring traditional geometric and floral running stitch needlework with matching blouse piece.",
+      fabric: "Pure Handloom Silk with Katha Stitch",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹6500"
+    },
+    {
+      id: "p65",
+      name: "Dual Tone Coral & Sky Blue Katha Stitch Silk Saree (with blouse piece)",
+      category: "Katha Stitch Saris",
+      image: "/images/pic12.webp",
+      description: "Stunning dual tone coral and sky blue handloom silk saree adorned with artisanal rural Bengal storytelling motifs and intricate Katha needlework.",
+      fabric: "Pure Handloom Silk with Katha Stitch",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹6500"
+    },
+    {
+      id: "p66",
+      name: "Royal Magenta Katha Stitch Silk Saree (with blouse piece)",
+      category: "Katha Stitch Saris",
+      image: "/images/pic13.webp",
+      description: "Opulent royal magenta pure silk saree featuring multi-colored geometric mandala and paisley motifs hand-embroidered by master Katha stitch craftswomen.",
+      fabric: "Pure Handloom Silk with Katha Stitch",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹6500"
+    },
+    {
+      id: "p67",
+      name: "Crimson Orange Floral Jaal Katha Stitch Silk Saree (with blouse piece)",
+      category: "Katha Stitch Saris",
+      image: "/images/pic14.webp",
+      description: "Vibrant crimson orange pure silk saree enveloped in dense all-over floral jaal and blooming vine embroidery handcrafted with authentic Katha stitch threads.",
+      fabric: "Pure Handloom Silk with Katha Stitch",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹6500"
+    },
+    {
+      id: "p68",
+      name: "Turquoise Cyan All-Over Jaal Katha Stitch Silk Saree (with blouse piece)",
+      category: "Katha Stitch Saris",
+      image: "/images/pic15.webp",
+      description: "Breathtaking turquoise cyan handloom silk saree draped in rich, intricate all-over floral vine jaal hand-embroidered for heirloom festive and bridal occasions.",
+      fabric: "Pure Handloom Silk with Katha Stitch",
+      dimensions: "6.35 Meters (with blouse piece)",
+      care: "Dry clean only",
+      price: "₹6500"
     }
   ],
 
@@ -792,11 +847,11 @@ export const siteData = {
     { type: "image", src: "/images/pic8.webp", category: "Double ply pure Murshidabad Silk saris", name: "Double ply pure Murshidabad Silk sarees (with blouse piece)" },
     { type: "image", src: "/images/pic9.webp", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Hand batik print pure Murshidabad Silk Saree (with blouse piece)" },
     { type: "image", src: "/images/pic10.webp", category: "Single ply pure Murshidabad Silk saris", name: "Single ply pure Murshidabad Silk sarees (without blouse piece)" },
-    { type: "image", src: "/images/pic11.webp", category: "Single ply pure Murshidabad Silk saris", name: "Pure Handloom Silk Saree" },
-    { type: "image", src: "/images/pic12.webp", category: "Single ply pure Murshidabad Silk saris", name: "Pure Handloom Silk Saree" },
-    { type: "image", src: "/images/pic13.webp", category: "Single ply pure Murshidabad Silk saris", name: "Pure Handloom Silk Saree" },
-    { type: "image", src: "/images/pic14.webp", category: "Single ply pure Murshidabad Silk saris", name: "Pure Handloom Silk Saree" },
-    { type: "image", src: "/images/pic15.webp", category: "Single ply pure Murshidabad Silk saris", name: "Pure Handloom Silk Saree" },
+    { type: "image", src: "/images/pic11.webp", category: "Katha Stitch Saris", name: "Rust Orange Handcrafted Katha Stitch Silk Saree (with blouse piece)" },
+    { type: "image", src: "/images/pic12.webp", category: "Katha Stitch Saris", name: "Dual Tone Coral & Sky Blue Katha Stitch Silk Saree (with blouse piece)" },
+    { type: "image", src: "/images/pic13.webp", category: "Katha Stitch Saris", name: "Royal Magenta Katha Stitch Silk Saree (with blouse piece)" },
+    { type: "image", src: "/images/pic14.webp", category: "Katha Stitch Saris", name: "Crimson Orange Floral Jaal Katha Stitch Silk Saree (with blouse piece)" },
+    { type: "image", src: "/images/pic15.webp", category: "Katha Stitch Saris", name: "Turquoise Cyan All-Over Jaal Katha Stitch Silk Saree (with blouse piece)" },
     { type: "image", src: "/images/pic16.webp", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Hand batik print pure Murshidabad Silk Saree (with blouse piece)" },
     { type: "image", src: "/images/pic17.webp", category: "Gents Cotton/Silk Shirts", name: "Pure Silk Shirt" },
     { type: "image", src: "/images/pic18.webp", category: "Gents Cotton/Silk Shirts", name: "Pure Silk Shirt" },

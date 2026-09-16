@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Eye, Check, MessageCircle, Sparkles, Move } from 'lucide-react';
+import { ShoppingBag, Eye, Check, MessageCircle, Sparkles, ZoomIn } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import SectionHeading from '../components/common/SectionHeading';
 import ProductModal from '../components/common/ProductModal';
@@ -34,7 +34,7 @@ const ProductCard = ({ product, index, onQuickView }) => {
         <div 
           className="overflow-hidden relative aspect-[4/5] flex-shrink-0 cursor-pointer bg-stone-100" 
           onClick={() => onQuickView(product)}
-          title="Click to view & explore saree in all directions"
+          title="Click to zoom & inspect saree design in detail"
         >
           <img
             src={product.image}
@@ -54,10 +54,10 @@ const ProductCard = ({ product, index, onQuickView }) => {
             </span>
           </div>
 
-          {/* Move/Inspect hint badge on desktop */}
+          {/* Zoom/Inspect hint badge on desktop */}
           <div className="absolute bottom-3 right-3 z-10 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <span className="bg-black/60 backdrop-blur-md text-white text-[10px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1 border border-white/20">
-              <Move className="w-3 h-3 text-amber-400" /> Move & Zoom
+              <ZoomIn className="w-3 h-3 text-amber-400" /> Zoom & Inspect
             </span>
           </div>
 

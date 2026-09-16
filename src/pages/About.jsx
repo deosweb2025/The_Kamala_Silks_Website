@@ -5,7 +5,7 @@ import { siteData } from '../data/siteData';
 import { TrustBanner } from '../components/home/HomeGlimpses';
 
 const storeSareeImages = [
-  { src: "/images/pic3.webp", alt: "Katha Stitch Masterpiece Saree in Showroom" },
+  { src: "/images/pic13.webp", alt: "Katha Stitch Masterpiece Saree in Showroom" },
   { src: "/images/pic1.webp", alt: "Classic Handwoven Matka Silk Saree" },
   { src: "/images/pic7.webp", alt: "Royal Handloom Silk Saree Collection" },
   { src: "/images/pic5.webp", alt: "Premium Floral Painted Silk Saree" },
@@ -143,7 +143,7 @@ const About = () => {
                     className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-white/90 group bg-white sm:mt-6"
                   >
                     <img 
-                      src="/images/pic2.webp" 
+                      src="/images/pic11.webp" 
                       alt="Artisanal Katha Stitch Saree" 
                       className="w-full h-[320px] sm:h-[380px] object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
