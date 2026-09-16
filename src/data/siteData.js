@@ -788,7 +788,7 @@ export const siteData = {
       fabric: "Pure Handloom Silk with Katha Stitch",
       dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
-      price: "₹6500"
+      price: "₹6000"
     },
     {
       id: "p65",
@@ -799,7 +799,7 @@ export const siteData = {
       fabric: "Pure Handloom Silk with Katha Stitch",
       dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
-      price: "₹6500"
+      price: "₹6000"
     },
     {
       id: "p66",
@@ -810,7 +810,7 @@ export const siteData = {
       fabric: "Pure Handloom Silk with Katha Stitch",
       dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
-      price: "₹6500"
+      price: "₹6000"
     },
     {
       id: "p67",
@@ -821,7 +821,7 @@ export const siteData = {
       fabric: "Pure Handloom Silk with Katha Stitch",
       dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
-      price: "₹6500"
+      price: "₹6000"
     },
     {
       id: "p68",
@@ -832,7 +832,7 @@ export const siteData = {
       fabric: "Pure Handloom Silk with Katha Stitch",
       dimensions: "6.35 Meters (with blouse piece)",
       care: "Dry clean only",
-      price: "₹6500"
+      price: "₹6000"
     }
   ],
 

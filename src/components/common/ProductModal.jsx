@@ -86,6 +86,7 @@ const ProductModal = ({ isOpen, onClose, product, type = "product" }) => {
 
             {/* Left Media Column with Flexible Image Viewer */}
             <div className="w-full md:w-1/2 bg-neutral-900 flex items-center justify-center relative h-[290px] sm:h-[350px] md:h-auto md:min-h-[500px]">
+            <div className="w-full md:w-1/2 bg-neutral-950 flex items-center justify-center relative h-[320px] sm:h-[380px] md:h-auto md:min-h-[500px]">
               {type === "gallery" && product.type === "video" ? (
                 <video 
                   src={product.src} 
@@ -100,12 +101,14 @@ const ProductModal = ({ isOpen, onClose, product, type = "product" }) => {
                   src={imageSrc} 
                   alt={productName}
                   className="h-full min-h-[290px] sm:min-h-[350px] md:min-h-[500px]"
+                  className="h-full min-h-[320px] sm:min-h-[380px] md:min-h-[500px]"
                 />
               )}
             </div>
             
             {/* Right Info Column */}
             <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-10 lg:p-12 overflow-y-auto flex flex-col bg-white">
+            <div className="w-full md:w-1/2 p-5 sm:p-7 md:p-10 lg:p-12 overflow-y-auto flex flex-col bg-white">
               {isCatalogItem ? (
                 <>
                   <div className="flex items-center gap-2 mb-2">

@@ -16,15 +16,36 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
   const [showHint, setShowHint] = useState(true);
 
   const containerRef = useRef(null);
+  const imgRef = useRef(null);
   const dragStartRef = useRef({ x: 0, y: 0 });
   const initialPosRef = useRef({ x: 0, y: 0 });
   const touchDistanceRef = useRef(null);
+
+  // Touch gesture state tracking for mobile pinch & pan
+  const touchStateRef = useRef({
+    startDistance: 0,
+    startScale: 1,
+    startX: 0,
+    startY: 0,
+    initialPosX: 0,
+    initialPosY: 0,
+    isPinching: false,
+    isPanning: false,
+    lastTapTime: 0,
+  });
 
   // Auto-hide hint badge after 4.5s
   useEffect(() => {
     const timer = setTimeout(() => setShowHint(false), 4500);
     return () => clearTimeout(timer);
   }, []);
+
+  // Reset zoom & position whenever the image source changes
+  useEffect(() => {
+    setScale(1);
+    setPosition({ x: 0, y: 0 });
+    setIsDragging(false);
+  }, [src]);
 
   // Keyboard zoom controls (+, -, 0, Escape)
   useEffect(() => {
@@ -52,16 +73,72 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
   }, [isFullscreen]);
 
   // Clamp pan position within boundaries based on container size and scale
+  // Prevent browser viewport pinch-zoom / pull-to-refresh on mobile when interacting
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleNativeTouchMove = (e) => {
+      if (e.touches.length > 1 || scale > 1) {
+        if (e.cancelable) {
+          e.preventDefault();
+        }
+      }
+    };
+
+    container.addEventListener('touchmove', handleNativeTouchMove, { passive: false });
+    return () => {
+      container.removeEventListener('touchmove', handleNativeTouchMove);
+    };
+  }, [scale]);
+
+  // Strict clamp pan position within boundaries based on rendered image layout dimensions
   const clampPosition = useCallback((x, y, currentScale) => {
     if (!containerRef.current || currentScale <= 1) return { x: 0, y: 0 };
     const rect = containerRef.current.getBoundingClientRect();
     const maxPanX = (rect.width * (currentScale - 1)) / 2 + 40;
     const maxPanY = (rect.height * (currentScale - 1)) / 2 + 40;
+    if (!containerRef.current || currentScale <= 1) {
+      return { x: 0, y: 0 };
+    }
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const imgEl = imgRef.current;
+
+    // Use unscaled DOM layout dimensions of the image
+    const imgW = imgEl?.offsetWidth || (containerRect.width * 0.8);
+    const imgH = imgEl?.offsetHeight || (containerRect.height * 0.85);
+
+    const scaledW = imgW * currentScale;
+    const scaledH = imgH * currentScale;
+
+    // Only allow horizontal panning if scaled image is wider than container
+    let maxPanX = 0;
+    if (scaledW > containerRect.width) {
+      maxPanX = (scaledW - containerRect.width) / 2;
+    }
+
+    // Only allow vertical panning if scaled image is taller than container
+    let maxPanY = 0;
+    if (scaledH > containerRect.height) {
+      maxPanY = (scaledH - containerRect.height) / 2;
+    }
+
     return {
       x: Math.max(-maxPanX, Math.min(maxPanX, x)),
       y: Math.max(-maxPanY, Math.min(maxPanY, y)),
     };
   }, []);
+
+  // Re-clamp on window resize or orientation change
+  useEffect(() => {
+    const handleResize = () => {
+      if (scale > 1) {
+        setPosition((pos) => clampPosition(pos.x, pos.y, scale));
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [scale, clampPosition]);
 
   // Zoom handlers
   const handleZoomIn = () => {
@@ -89,6 +166,7 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
   };
 
   // Double click / Double tap to quickly zoom in or reset
+  // Double click / Double tap to quickly zoom in to 2.5x or reset
   const handleDoubleClick = (e) => {
     setShowHint(false);
     if (scale > 1) {
@@ -113,10 +191,12 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
   };
 
   // Mouse wheel zoom
+  // Desktop Mouse wheel zoom
   const handleWheel = (e) => {
     e.preventDefault();
     setShowHint(false);
     const delta = e.deltaY * -0.0025;
+    const delta = e.deltaY * -0.002;
     setScale((prev) => {
       const next = Math.min(Math.max(Number((prev + delta).toFixed(2)), 1), 4);
       if (next === 1) {
@@ -131,6 +211,9 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
   // Pointer drag for panning across zoomed saree
   const handlePointerDown = (e) => {
     if (e.button !== undefined && e.button !== 0) return;
+  // Desktop Mouse drag for panning across zoomed saree
+  const handleMouseDown = (e) => {
+    if (e.button !== 0 || scale <= 1) return;
     setShowHint(false);
     setIsDragging(true);
 
@@ -144,6 +227,8 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
 
   const handlePointerMove = (e) => {
     if (!isDragging) return;
+  const handleMouseMove = (e) => {
+    if (!isDragging || scale <= 1) return;
 
     const deltaX = e.clientX - dragStartRef.current.x;
     const deltaY = e.clientY - dragStartRef.current.y;
@@ -155,6 +240,7 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
   };
 
   const handlePointerUp = (e) => {
+  const handleMouseUp = () => {
     setIsDragging(false);
     if (e.currentTarget.releasePointerCapture && e.pointerId) {
       try {
@@ -166,18 +252,61 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
   };
 
   // Mobile pinch-to-zoom support
+  // Mobile Touch Gestures: Pinch-to-zoom & Smooth 1-finger Pan
   const handleTouchStart = (e) => {
+    setShowHint(false);
+
     if (e.touches.length === 2) {
+      // Two-finger pinch gesture
       const dist = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
       touchDistanceRef.current = dist;
+      touchStateRef.current.isPinching = true;
+      touchStateRef.current.isPanning = false;
+      touchStateRef.current.startDistance = dist;
+      touchStateRef.current.startScale = scale;
+      setIsDragging(true);
+    } else if (e.touches.length === 1) {
+      // Check for double-tap on mobile
+      const now = Date.now();
+      if (now - touchStateRef.current.lastTapTime < 300) {
+        if (scale > 1) {
+          handleReset();
+        } else {
+          const rect = containerRef.current?.getBoundingClientRect();
+          if (rect) {
+            const tapX = e.touches[0].clientX - rect.left - rect.width / 2;
+            const tapY = e.touches[0].clientY - rect.top - rect.height / 2;
+            const targetScale = 2.5;
+            setScale(targetScale);
+            setPosition(clampPosition(-tapX * 0.75, -tapY * 0.75, targetScale));
+          } else {
+            setScale(2.5);
+          }
+        }
+        touchStateRef.current.lastTapTime = 0;
+        return;
+      }
+      touchStateRef.current.lastTapTime = now;
+
+      // If already zoomed in, enable smooth 1-finger panning
+      if (scale > 1) {
+        touchStateRef.current.isPanning = true;
+        touchStateRef.current.isPinching = false;
+        touchStateRef.current.startX = e.touches[0].clientX;
+        touchStateRef.current.startY = e.touches[0].clientY;
+        touchStateRef.current.initialPosX = position.x;
+        touchStateRef.current.initialPosY = position.y;
+        setIsDragging(true);
+      }
     }
   };
 
   const handleTouchMove = (e) => {
     if (e.touches.length === 2 && touchDistanceRef.current !== null) {
+    if (touchStateRef.current.isPinching && e.touches.length === 2) {
       const dist = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
@@ -189,11 +318,45 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
         return next;
       });
       touchDistanceRef.current = dist;
+      if (touchStateRef.current.startDistance > 0) {
+        const factor = dist / touchStateRef.current.startDistance;
+        const newScale = Math.min(
+          Math.max(Number((touchStateRef.current.startScale * factor).toFixed(2)), 1),
+          4
+        );
+        setScale(newScale);
+        if (newScale === 1) {
+          setPosition({ x: 0, y: 0 });
+        } else {
+          setPosition((pos) => clampPosition(pos.x, pos.y, newScale));
+        }
+      }
+    } else if (touchStateRef.current.isPanning && e.touches.length === 1 && scale > 1) {
+      const deltaX = e.touches[0].clientX - touchStateRef.current.startX;
+      const deltaY = e.touches[0].clientY - touchStateRef.current.startY;
+      const newX = touchStateRef.current.initialPosX + deltaX;
+      const newY = touchStateRef.current.initialPosY + deltaY;
+      setPosition(clampPosition(newX, newY, scale));
     }
   };
 
   const handleTouchEnd = () => {
     touchDistanceRef.current = null;
+  const handleTouchEnd = (e) => {
+    if (e.touches.length === 0) {
+      setIsDragging(false);
+      touchStateRef.current.isPinching = false;
+      touchStateRef.current.isPanning = false;
+      touchStateRef.current.startDistance = 0;
+    } else if (e.touches.length === 1 && scale > 1) {
+      // Seamlessly transition from 2-finger pinch to 1-finger pan with remaining finger
+      touchStateRef.current.isPinching = false;
+      touchStateRef.current.isPanning = true;
+      touchStateRef.current.startX = e.touches[0].clientX;
+      touchStateRef.current.startY = e.touches[0].clientY;
+      touchStateRef.current.initialPosX = position.x;
+      touchStateRef.current.initialPosY = position.y;
+    }
   };
 
   const viewerContent = (
@@ -205,9 +368,14 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
       className={`relative w-full h-full overflow-hidden select-none bg-neutral-950 flex items-center justify-center ${
         isDragging
           ? 'cursor-grabbing'
@@ -216,10 +384,13 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
           : 'cursor-zoom-in'
       }`}
       style={{ touchAction: 'none' }}
+      style={{ touchAction: scale > 1 ? 'none' : 'pan-y' }}
     >
       {/* Background ambient texture */}
+      {/* Background ambient subtle weave texture */}
       <div
         className="absolute inset-0 opacity-15 bg-repeat pointer-events-none"
+        className="absolute inset-0 opacity-10 bg-repeat pointer-events-none"
         style={{ backgroundImage: 'url("/images/texture.webp")' }}
       />
 
@@ -237,6 +408,24 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
           draggable={false}
           className="max-h-[300px] sm:max-h-[420px] md:max-h-[520px] w-auto object-contain rounded-xl select-none pointer-events-none shadow-2xl border border-white/10"
         />
+      {/* Saree Image Container with precision center-scaling */}
+      <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-4 select-none pointer-events-none">
+        <div
+          className="relative flex items-center justify-center select-none will-change-transform"
+          style={{
+            transform: `translate3d(${position.x}px, ${position.y}px, 0px) scale(${scale})`,
+            transformOrigin: 'center center',
+            transition: isDragging ? 'none' : 'transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1)',
+          }}
+        >
+          <img
+            ref={imgRef}
+            src={src}
+            alt={alt}
+            draggable={false}
+            className="max-h-[310px] sm:max-h-[380px] md:max-h-[500px] max-w-[90%] sm:max-w-[92%] w-auto object-contain select-none pointer-events-none drop-shadow-2xl"
+          />
+        </div>
       </div>
 
       {/* Floating Zoom & Pan Guidance */}
@@ -244,16 +433,22 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
         <div 
           onClick={() => setShowHint(false)}
           className="absolute top-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-accent/95 hover:bg-accent text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-xl cursor-pointer transition-all whitespace-nowrap border border-white/20"
+          className="absolute top-3 left-4 right-14 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 z-30 flex items-center justify-center gap-1.5 bg-accent/95 hover:bg-accent text-white text-[11px] sm:text-xs font-semibold px-3.5 py-1.5 rounded-full shadow-xl cursor-pointer transition-all border border-white/20 text-center select-none"
         >
           <Search className="w-3.5 h-3.5 shrink-0" />
           <span>Double-click or pinch to zoom • Drag to pan</span>
+          <Search className="w-3.5 h-3.5 shrink-0 text-amber-300" />
+          <span className="truncate">Double-tap or pinch to zoom • Drag to inspect</span>
         </div>
       )}
 
       {/* Bottom Floating Zoom Toolbar */}
       <div 
         className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1 sm:gap-2 bg-black/85 hover:bg-black/95 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20 shadow-2xl transition-all select-none"
+        className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1 sm:gap-2 bg-neutral-900/90 hover:bg-neutral-900/95 backdrop-blur-md px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20 shadow-2xl transition-all select-none"
         onClick={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
       >
         {/* Zoom Out */}
         <button
@@ -261,9 +456,11 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
           disabled={scale <= 1}
           title="Zoom Out (-)"
           className={`p-1.5 rounded-full transition-all ${
+          className={`p-1.5 sm:p-2 rounded-full transition-all touch-manipulation ${
             scale <= 1 
               ? 'text-white/30 cursor-not-allowed' 
               : 'text-white hover:bg-white/20 active:scale-95'
+              : 'text-white hover:bg-white/20 active:scale-90 cursor-pointer'
           }`}
           aria-label="Zoom out"
         >
@@ -274,6 +471,7 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
         <button
           onClick={scale > 1 ? handleReset : handleZoomIn}
           className="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold transition-colors min-w-[56px] text-center"
+          className="px-2 sm:px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold transition-colors min-w-[50px] sm:min-w-[56px] text-center touch-manipulation cursor-pointer"
           title={scale > 1 ? "Click to reset to 100%" : "Click to zoom in"}
         >
           {Math.round(scale * 100)}%
@@ -285,9 +483,11 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
           disabled={scale >= 4}
           title="Zoom In (+)"
           className={`p-1.5 rounded-full transition-all ${
+          className={`p-1.5 sm:p-2 rounded-full transition-all touch-manipulation ${
             scale >= 4 
               ? 'text-white/30 cursor-not-allowed' 
               : 'text-white hover:bg-white/20 active:scale-95'
+              : 'text-white hover:bg-white/20 active:scale-90 cursor-pointer'
           }`}
           aria-label="Zoom in"
         >
@@ -302,9 +502,12 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
           disabled={scale === 1 && position.x === 0 && position.y === 0}
           title="Reset to 100%"
           className={`p-1.5 rounded-full transition-all ${
+          title="Reset zoom"
+          className={`p-1.5 sm:p-2 rounded-full transition-all touch-manipulation ${
             scale === 1 && position.x === 0 && position.y === 0
               ? 'text-white/30 cursor-not-allowed'
               : 'text-white hover:bg-white/20 active:scale-95'
+              : 'text-white hover:bg-white/20 active:scale-90 cursor-pointer'
           }`}
           aria-label="Reset zoom"
         >
@@ -316,9 +519,12 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
           onClick={() => setIsFullscreen(!isFullscreen)}
           title={isFullscreen ? "Exit Fullscreen" : "Fullscreen Inspection"}
           className="p-1.5 text-white hover:bg-white/20 rounded-full transition-all active:scale-95"
+          title={isFullscreen ? "Exit Fullscreen" : "Fullscreen Saree Inspection"}
+          className="p-1.5 sm:p-2 text-white hover:bg-white/20 rounded-full transition-all active:scale-90 touch-manipulation cursor-pointer"
           aria-label="Toggle fullscreen"
         >
           {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+          {isFullscreen ? <Minimize2 className="w-4 h-4 text-amber-400" /> : <Maximize2 className="w-4 h-4" />}
         </button>
       </div>
     </div>
@@ -327,12 +533,15 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
   if (isFullscreen) {
     return (
       <div className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center">
+      <div className="fixed inset-0 z-[100] bg-neutral-950 flex flex-col items-center justify-center">
         {viewerContent}
         <button
           onClick={() => setIsFullscreen(false)}
           className="absolute top-4 right-4 z-50 px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs font-semibold rounded-full border border-white/40 shadow-lg transition-all flex items-center gap-1.5"
+          className="absolute top-4 right-4 z-50 px-4 py-2 bg-neutral-900/80 hover:bg-neutral-800 backdrop-blur-md text-white text-xs font-semibold rounded-full border border-white/30 shadow-2xl transition-all flex items-center gap-1.5 active:scale-95 cursor-pointer touch-manipulation"
         >
           <Minimize2 className="w-3.5 h-3.5" /> Close Fullscreen
+          <Minimize2 className="w-4 h-4 text-amber-400" /> Close Fullscreen
         </button>
       </div>
     );
@@ -340,6 +549,7 @@ const FlexibleImageViewer = ({ src, alt = "Saree Inspection", className = "" }) 
 
   return (
     <div className={`relative w-full h-full min-h-[290px] sm:min-h-[350px] md:min-h-[500px] ${className}`}>
+    <div className={`relative w-full h-full min-h-[320px] sm:min-h-[380px] md:min-h-[500px] ${className}`}>
       {viewerContent}
     </div>
   );
