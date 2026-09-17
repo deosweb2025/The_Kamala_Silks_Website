@@ -17,11 +17,13 @@
   }
   
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
   body {
     @apply bg-white text-primary font-sans antialiased;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

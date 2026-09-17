@@ -370,7 +370,7 @@ const HomeProductCard = ({ product, idx = 0, onQuickView }) => {
 
   return (
     <div
-      className="group relative p-[2px] rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col md:hover:-translate-y-2 w-full bg-white will-change-transform"
+      className="group relative p-[2px] rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col md:hover:-translate-y-2 w-full bg-white"
     >
       {/* Animated Spinning Gradient Border (desktop hover only) */}
       <div className="hidden md:block absolute inset-[-150%] bg-[conic-gradient(from_90deg_at_50%_50%,#E57C22_0%,#ffffff_50%,#E57C22_100%)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_4s_linear_infinite] transition-opacity duration-300 pointer-events-none z-0" />
@@ -387,6 +387,7 @@ const HomeProductCard = ({ product, idx = 0, onQuickView }) => {
             alt={product.name}
             loading={isEager ? "eager" : "lazy"}
             fetchPriority={isEager ? "high" : "auto"}
+            decoding="async"
             className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-500"
           />
 

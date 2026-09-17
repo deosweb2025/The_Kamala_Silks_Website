@@ -23,7 +23,7 @@ const ProductCard = ({ product, index, onQuickView }) => {
   return (
     <div
       key={product.id}
-      className="group relative p-[2px] bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col md:hover:-translate-y-2 will-change-transform"
+      className="group relative p-[2px] bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col md:hover:-translate-y-2"
     >
       {/* Animated Spinning Gradient Border (active on desktop hover only) */}
       <div className="hidden md:block absolute inset-[-150%] bg-[conic-gradient(from_90deg_at_50%_50%,#E57C22_0%,#ffffff_50%,#E57C22_100%)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_4s_linear_infinite] transition-opacity duration-300 pointer-events-none z-0" />
@@ -41,6 +41,7 @@ const ProductCard = ({ product, index, onQuickView }) => {
             alt={product.name}
             loading={isEager ? "eager" : "lazy"}
             fetchPriority={isEager ? "high" : "auto"}
+            decoding="async"
             className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-500"
           />
 
@@ -239,25 +240,16 @@ const Products = () => {
           </div>
 
           {/* Product Grid */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={filter}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-            >
-              {filteredProducts.map((product, index) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  index={index}
-                  onQuickView={setSelectedProduct}
-                />
-              ))}
-            </motion.div>
-          </AnimatePresence>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {filteredProducts.map((product, index) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                index={index}
+                onQuickView={setSelectedProduct}
+              />
+            ))}
+          </div>
 
           {/* Empty state fallback with WhatsApp CTA for unlisted segments */}
           {filteredProducts.length === 0 && (

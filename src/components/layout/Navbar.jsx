@@ -21,28 +21,37 @@ const Navbar = () => {
   }
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
 
-      // Scrolled state for background transitions
-      setIsScrolled(currentScrollY > 20);
+          // Scrolled state for background transitions
+          const scrolled = currentScrollY > 20;
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
 
-      // Flexible smart scroll behavior for both mobile and laptop/desktop views
-      // Hides on scroll down to maximize screen space, reveals immediately on scroll up
-      const delta = currentScrollY - lastScrollYRef.current;
+          // Flexible smart scroll behavior for both mobile and laptop/desktop views
+          const delta = currentScrollY - lastScrollYRef.current;
 
-      // Only toggle visibility if scrolled past threshold to prevent jitter / blinking
-      if (currentScrollY <= 20) {
-        setIsVisible(true);
-      } else if (Math.abs(delta) >= 12) {
-        if (delta > 0 && currentScrollY > 80) {
-          if (!isMobileMenuOpen) {
-            setIsVisible(false);
+          // Only toggle visibility if scrolled past threshold to prevent jitter
+          if (currentScrollY <= 20) {
+            setIsVisible(true);
+          } else if (Math.abs(delta) >= 15) {
+            if (delta > 0 && currentScrollY > 80) {
+              if (!isMobileMenuOpen) {
+                setIsVisible(false);
+              }
+            } else if (delta < 0) {
+              setIsVisible(true);
+            }
+            lastScrollYRef.current = currentScrollY;
           }
-        } else if (delta < 0) {
-          setIsVisible(true);
-        }
-        lastScrollYRef.current = currentScrollY;
+
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

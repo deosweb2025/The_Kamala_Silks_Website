@@ -1,10 +1,99 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Eye, ZoomIn, MessageCircle } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import SectionHeading from '../components/common/SectionHeading';
 import ProductModal from '../components/common/ProductModal';
 import { siteData, sareeCategories } from '../data/siteData';
+// High-performance lazy video card: only mounts and decodes video when near viewport,
+// completely preventing mobile GPU decoder bottlenecks and scroll freeze.
+const GalleryVideoCard = ({ media, onClick }) => {
+  const containerRef = useRef(null);
+  const videoRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+          } else {
+            // Pause playback when scrolled offscreen to conserve GPU resources
+            if (videoRef.current && !videoRef.current.paused) {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      { rootMargin: '350px 0px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (window.matchMedia('(hover: hover)').matches && videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Catch and ignore play abort error on rapid hover
+        });
+      }
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      className="overflow-hidden rounded-3xl shadow-md hover:shadow-2xl aspect-[4/5] cursor-pointer relative group bg-stone-900 border-4 border-white transition-all duration-300 flex flex-col md:hover:-translate-y-1"
+      onClick={onClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {isInView ? (
+        <video
+          ref={videoRef}
+          src={`${media.src}#t=0.001`}
+          className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-500"
+          muted
+          defaultMuted
+          loop
+          playsInline
+          preload="metadata"
+        />
+      ) : (
+        <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-stone-850 to-stone-950 text-white/30">
+          <Play className="w-8 h-8 text-white/40" />
+        </div>
+      )}
+
+      {/* Category Pill Badge */}
+      <div className="absolute top-3 left-3 z-10 max-w-[85%]">
+        <span className="bg-white/95 backdrop-blur-sm text-accent text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow block truncate border border-accent/20">
+          {media.category || "Handloom Silk"}
+        </span>
+      </div>
+
+      {/* Dark hover overlay with action icon */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+        <span className="text-white bg-white/20 backdrop-blur-md p-4 rounded-full shadow-2xl scale-50 group-hover:scale-100 transition-all duration-500">
+          <Play className="w-7 h-7 text-white fill-white" />
+        </span>
+      </div>
+    </div>
+  );
+};
 
 const Gallery = () => {
   const [selectedMedia, setSelectedMedia] = useState(null);
@@ -123,42 +212,28 @@ const Gallery = () => {
           </div>
           
           {/* Gallery Media Grid */}
-          <AnimatePresence mode="wait">
-            <motion.div 
-              key={`${mediaFilter}-${categoryFilter}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
-            >
-              {filteredGallery.map((media, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+            {filteredGallery.map((media, idx) => (
+              media.type === "video" ? (
+                <GalleryVideoCard
+                  key={media.src}
+                  media={media}
+                  onClick={() => setSelectedMedia(media)}
+                />
+              ) : (
                 <div
                   key={media.src}
-                  className="overflow-hidden rounded-3xl shadow-md hover:shadow-2xl aspect-[4/5] cursor-pointer relative group bg-stone-100 border-4 border-white transition-all duration-300 flex flex-col will-change-transform md:hover:-translate-y-1"
+                  className="overflow-hidden rounded-3xl shadow-md hover:shadow-2xl aspect-[4/5] cursor-pointer relative group bg-stone-100 border-4 border-white transition-all duration-300 flex flex-col md:hover:-translate-y-1"
                   onClick={() => setSelectedMedia(media)}
                 >
-                  {media.type === "video" ? (
-                    <video 
-                      src={`${media.src}#t=0.001`} 
-                      className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-500" 
-                      muted 
-                      defaultMuted 
-                      loop 
-                      playsInline 
-                      preload="metadata"
-                      onMouseEnter={(e) => e.target.play()}
-                      onMouseLeave={(e) => e.target.pause()}
-                    />
-                  ) : (
-                    <img 
-                      src={media.src} 
-                      alt={media.name || "Gallery Saree"} 
-                      loading={idx < 8 ? "eager" : "lazy"}
-                      fetchPriority={idx < 8 ? "high" : "auto"}
-                      className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-500" 
-                    />
-                  )}
+                  <img 
+                    src={media.src} 
+                    alt={media.name || "Gallery Saree"} 
+                    loading={idx < 8 ? "eager" : "lazy"}
+                    fetchPriority={idx < 8 ? "high" : "auto"}
+                    decoding="async"
+                    className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-500" 
+                  />
                   
                   {/* Category Pill Badge */}
                   <div className="absolute top-3 left-3 z-10 max-w-[85%]">
@@ -168,28 +243,22 @@ const Gallery = () => {
                   </div>
 
                   {/* Move/Inspect hint on images */}
-                  {media.type === "image" && (
-                    <div className="absolute bottom-3 right-3 z-10 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <span className="bg-black/60 backdrop-blur-md text-white text-[10px] font-medium px-2 py-1 rounded-full flex items-center gap-1 border border-white/20">
-                        <ZoomIn className="w-3 h-3 text-amber-400" /> Zoom & Inspect
-                      </span>
-                    </div>
-                  )}
+                  <div className="absolute bottom-3 right-3 z-10 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <span className="bg-black/60 backdrop-blur-md text-white text-[10px] font-medium px-2 py-1 rounded-full flex items-center gap-1 border border-white/20">
+                      <ZoomIn className="w-3 h-3 text-amber-400" /> Zoom & Inspect
+                    </span>
+                  </div>
 
                   {/* Dark hover overlay with action icon */}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                     <span className="text-white bg-white/20 backdrop-blur-md p-4 rounded-full shadow-2xl scale-50 group-hover:scale-100 transition-all duration-500">
-                      {media.type === "video" ? (
-                        <Play className="w-7 h-7 text-white fill-white" />
-                      ) : (
-                        <Eye className="w-7 h-7 text-white" />
-                      )}
+                      <Eye className="w-7 h-7 text-white" />
                     </span>
                   </div>
                 </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+              )
+            ))}
+          </div>
 
           {/* Empty state fallback with WhatsApp CTA */}
           {filteredGallery.length === 0 && (
