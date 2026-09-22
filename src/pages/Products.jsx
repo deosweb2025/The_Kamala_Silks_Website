@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Eye, Check, MessageCircle, Sparkles, ZoomIn } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
@@ -134,6 +134,7 @@ const ProductCard = ({ product, index, onQuickView }) => {
 const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [filter, setFilter] = useState('All');
+  const [visibleCount, setVisibleCount] = useState(32);
 
   const categories = sareeCategories || [
     "All",
@@ -151,6 +152,10 @@ const Products = () => {
   const filteredProducts = filter === 'All'
     ? siteData.products
     : siteData.products.filter(p => p.category === filter);
+
+  useEffect(() => {
+    setVisibleCount(32);
+  }, [filter]);
 
   return (
     <div className="w-full bg-gray-50">
@@ -241,7 +246,7 @@ const Products = () => {
 
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {filteredProducts.map((product, index) => (
+            {filteredProducts.slice(0, visibleCount).map((product, index) => (
               <ProductCard
                 key={product.id}
                 product={product}
@@ -250,6 +255,31 @@ const Products = () => {
               />
             ))}
           </div>
+
+          {/* Load More / Load Less Buttons */}
+          {filteredProducts.length > 32 && (
+            <div className="mt-16 flex justify-center gap-4">
+              {visibleCount < filteredProducts.length && (
+                <button
+                  onClick={() => setVisibleCount(prev => prev + 32)}
+                  className="px-8 py-3 bg-primary text-white text-sm font-bold rounded-full hover:bg-accent transition-colors shadow-md"
+                >
+                  Load More
+                </button>
+              )}
+              {visibleCount > 32 && (
+                <button
+                  onClick={() => {
+                    setVisibleCount(32);
+                    window.scrollTo({ top: 400, behavior: 'smooth' });
+                  }}
+                  className="px-8 py-3 bg-white text-primary border border-primary/20 text-sm font-bold rounded-full hover:bg-gray-50 transition-colors shadow-sm"
+                >
+                  Load Less
+                </button>
+              )}
+            </div>
+          )}
 
           {/* Empty state fallback with WhatsApp CTA for unlisted segments */}
           {filteredProducts.length === 0 && (

@@ -99,6 +99,7 @@ const Gallery = () => {
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [mediaFilter, setMediaFilter] = useState('all'); // 'all', 'image', 'video'
   const [categoryFilter, setCategoryFilter] = useState('All');
+  const [visibleCount, setVisibleCount] = useState(20);
 
   const categories = sareeCategories || [
     "All",
@@ -118,6 +119,10 @@ const Gallery = () => {
     const matchesCategory = categoryFilter === 'All' || media.category === categoryFilter;
     return matchesMedia && matchesCategory;
   });
+
+  useEffect(() => {
+    setVisibleCount(20);
+  }, [mediaFilter, categoryFilter]);
 
   return (
     <div className="w-full bg-gray-50">
@@ -213,7 +218,7 @@ const Gallery = () => {
           
           {/* Gallery Media Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-            {filteredGallery.map((media, idx) => (
+            {filteredGallery.slice(0, visibleCount).map((media, idx) => (
               media.type === "video" ? (
                 <GalleryVideoCard
                   key={media.src}
@@ -259,6 +264,31 @@ const Gallery = () => {
               )
             ))}
           </div>
+
+          {/* Load More / Load Less Buttons */}
+          {filteredGallery.length > 20 && (
+            <div className="mt-12 flex justify-center gap-4">
+              {visibleCount < filteredGallery.length && (
+                <button
+                  onClick={() => setVisibleCount(prev => prev + 20)}
+                  className="px-8 py-3 bg-primary text-white text-sm font-bold rounded-full hover:bg-accent transition-colors shadow-md"
+                >
+                  Load More
+                </button>
+              )}
+              {visibleCount > 20 && (
+                <button
+                  onClick={() => {
+                    setVisibleCount(20);
+                    window.scrollTo({ top: 300, behavior: 'smooth' }); // Optional: smooth scroll up slightly
+                  }}
+                  className="px-8 py-3 bg-white text-primary border border-primary/20 text-sm font-bold rounded-full hover:bg-gray-50 transition-colors shadow-sm"
+                >
+                  Load Less
+                </button>
+              )}
+            </div>
+          )}
 
           {/* Empty state fallback with WhatsApp CTA */}
           {filteredGallery.length === 0 && (
