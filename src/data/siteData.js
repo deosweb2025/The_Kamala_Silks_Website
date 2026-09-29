@@ -1155,11 +1155,11 @@ export const siteData = {
     },
     {
       id: "p99",
-      name: "Tussar Jori Hand print design with blouse piece",
-      category: "Tasar Saris",
+      name: "Silk Kethe Hand print Sari",
+      category: "Silk Kethe Saris",
       image: "/images/pic100.jpeg",
-      description: "Elegant Tussar Jori Hand print design with blouse piece.",
-      fabric: "Tussar Jori",
+      description: "Silk kethe Hand print Sari with blouse piece (6.30 meter).",
+      fabric: "Silk Kethe",
       dimensions: "6.30 meter",
       care: "Dry clean only",
       price: "₹4000"
@@ -1259,7 +1259,7 @@ export const siteData = {
     { type: "video", src: "/videos/videos66.mp4", category: "Bandhani Print Double Ply Silk Saree", name: "Bandhani Print Double Ply Silk Saree With Blouse Piece | ₹4000" },
     { type: "image", src: "/images/pic98.jpeg", category: "Tasar Saris", name: "Muga Tussar Sari with blouse piece | ₹4800" },
     { type: "image", src: "/images/pic99.jpeg", category: "Tasar Saris", name: "Tussar Jori Hand print design with blouse piece | ₹5200" },
-    { type: "image", src: "/images/pic100.jpeg", category: "Tasar Saris", name: "Tussar Jori Hand print design with blouse piece | ₹4000" },
+    { type: "image", src: "/images/pic100.jpeg", category: "Silk Kethe Saris", name: "Silk kethe Hand print Sari with blouse piece (6.30 meter) | ₹4000" },
     { type: "video", src: "/videos/video1.mp4", category: "Single ply pure Murshidabad Silk saris", name: "Single ply pure Murshidabad Silk Saree" },
     { type: "video", src: "/videos/videos2.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply pure Murshidabad Silk saree with blouse piece" },
     { type: "video", src: "/videos/videos3.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply pure Murshidabad Silk saree with blouse piece" },
@@ -1339,7 +1339,7 @@ export const siteData = {
     { type: "video", src: "/videos/videos56.mp4", category: "Garad Saris", name: "Special 7 inch par colour Horse Design Garad" },
     { type: "video", src: "/videos/videos57.mp4", category: "Garad Saris", name: "9 inch par red white pure Garad Saree" },
     { type: "video", src: "/videos/videos58.mp4", category: "Garad Saris", name: "7 inch par red white pure Garad Saree" },
-    { type: "video", src: "/videos/videos67.mp4", category: "Tasar Saris", name: "Tussar Jori Hand print design with blouse piece (6.30 meter) | ₹4000" }
+    { type: "video", src: "/videos/videos67.mp4", category: "Silk Kethe Saris", name: "Silk kethe Hand print Sari with blouse piece (6.30 meter) | ₹4000" }
 ,
     {
       type: "video",
