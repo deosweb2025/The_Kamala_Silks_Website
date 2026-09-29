@@ -1130,10 +1130,44 @@ export const siteData = {
       dimensions: "5.5 Meters + Blouse Piece",
       care: "Dry clean only",
       price: "₹4000"
+    },
+    {
+      id: "p97",
+      name: "Muga Tussar Sari with blouse piece",
+      category: "Tasar Saris",
+      image: "/images/pic98.jpeg",
+      description: "Elegant Muga Tussar Sari with blouse piece.",
+      fabric: "Muga Tussar",
+      dimensions: "6.30 meter",
+      care: "Dry clean only",
+      price: "₹4800"
+    },
+    {
+      id: "p98",
+      name: "Tussar Jori Hand print design with blouse piece",
+      category: "Tasar Saris",
+      image: "/images/pic99.jpeg",
+      description: "Elegant Tussar Jori Hand print design with blouse piece.",
+      fabric: "Tussar Jori",
+      dimensions: "6.30 meter",
+      care: "Dry clean only",
+      price: "₹5200"
+    },
+    {
+      id: "p99",
+      name: "Tussar Jori Hand print design with blouse piece",
+      category: "Tasar Saris",
+      image: "/images/pic100.jpeg",
+      description: "Elegant Tussar Jori Hand print design with blouse piece.",
+      fabric: "Tussar Jori",
+      dimensions: "6.30 meter",
+      care: "Dry clean only",
+      price: "₹4000"
     }
   ],
 
   gallery: [
+
 
     { type: "image", src: "/images/pic1.webp", category: "Single ply pure Murshidabad Silk saris", name: "Single ply pure Murshidabad Silk sarees (without blouse piece)" },
     { type: "image", src: "/images/pic2.webp", category: "Silk Kethe Saris", name: "Double ply Silk Kethe sarees (with blouse piece)" },
@@ -1223,6 +1257,9 @@ export const siteData = {
     { type: "video", src: "/videos/videos64.mp4", category: "Bandhani Print Double Ply Silk Saree", name: "Bandhani Print Double Ply Silk Saree With Blouse Piece | ₹4000" },
     { type: "video", src: "/videos/videos65.mp4", category: "Bandhani Print Double Ply Silk Saree", name: "Bandhani Print Double Ply Silk Saree With Blouse Piece | ₹4000" },
     { type: "video", src: "/videos/videos66.mp4", category: "Bandhani Print Double Ply Silk Saree", name: "Bandhani Print Double Ply Silk Saree With Blouse Piece | ₹4000" },
+    { type: "image", src: "/images/pic98.jpeg", category: "Tasar Saris", name: "Muga Tussar Sari with blouse piece | ₹4800" },
+    { type: "image", src: "/images/pic99.jpeg", category: "Tasar Saris", name: "Tussar Jori Hand print design with blouse piece | ₹5200" },
+    { type: "image", src: "/images/pic100.jpeg", category: "Tasar Saris", name: "Tussar Jori Hand print design with blouse piece | ₹4000" },
     { type: "video", src: "/videos/video1.mp4", category: "Single ply pure Murshidabad Silk saris", name: "Single ply pure Murshidabad Silk Saree" },
     { type: "video", src: "/videos/videos2.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply pure Murshidabad Silk saree with blouse piece" },
     { type: "video", src: "/videos/videos3.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply pure Murshidabad Silk saree with blouse piece" },
@@ -1301,9 +1338,9 @@ export const siteData = {
     { type: "video", src: "/videos/videos55.mp4", category: "Garad Saris", name: "Red White Cotton Butik with 5 inch par Garad Saree" },
     { type: "video", src: "/videos/videos56.mp4", category: "Garad Saris", name: "Special 7 inch par colour Horse Design Garad" },
     { type: "video", src: "/videos/videos57.mp4", category: "Garad Saris", name: "9 inch par red white pure Garad Saree" },
-    { type: "video", src: "/videos/videos58.mp4", category: "Garad Saris", name: "7 inch par red white pure Garad Saree" }
+    { type: "video", src: "/videos/videos58.mp4", category: "Garad Saris", name: "7 inch par red white pure Garad Saree" },
+    { type: "video", src: "/videos/videos67.mp4", category: "Tasar Saris", name: "Tussar Jori Hand print design with blouse piece | ₹4000" }
   ],
-
   heroSlides: [
     {
       id: 1,
