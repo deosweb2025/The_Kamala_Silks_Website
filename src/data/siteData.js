@@ -1355,7 +1355,7 @@ export const siteData = {
       type: "video",
       src: "/videos/videos69.mp4",
       category: "Tasar Saris",
-      name: "Muga Tussar Sari",
+      name: "Muga Tussar Saris",
       price: "₹4,800",
       description: "Muga Tussar Sari with blouse piece (6.30 meter)",
       fabric: "Muga Tussar Silk",
