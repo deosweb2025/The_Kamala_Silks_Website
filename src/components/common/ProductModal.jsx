@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShoppingBag, MessageCircle, Check, Sparkles } from 'lucide-react';
+import { X, ShoppingBag, MessageCircle, Check, Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { siteData } from '../../data/siteData';
 import FlexibleImageViewer from './FlexibleImageViewer';
 
 const ProductModal = ({ isOpen, onClose, product, type = "product" }) => {
   const [addedProductId, setAddedProductId] = useState(null);
+  const [isMuted, setIsMuted] = useState(true);
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -91,27 +92,34 @@ const ProductModal = ({ isOpen, onClose, product, type = "product" }) => {
                   ref={(el) => { 
                     if (el) {
                       el.muted = true;
-                      el.volume = 0;
+                      if (!product.src.includes('videos67')) {
+                        el.volume = 0;
+                      }
                     }
                   }}
                   onVolumeChange={(e) => {
-                    e.target.muted = true;
-                    e.target.volume = 0;
+                    if (!product.src.includes('videos67')) {
+                      e.target.muted = true;
+                      e.target.volume = 0;
+                    }
                   }}
                   onPlay={(e) => {
-                    e.target.muted = true;
-                    e.target.volume = 0;
+                    if (!product.src.includes('videos67')) {
+                      e.target.muted = true;
+                      e.target.volume = 0;
+                    }
                   }}
                   onLoadedMetadata={(e) => {
-                    e.target.muted = true;
-                    e.target.volume = 0;
+                    if (!product.src.includes('videos67')) {
+                      e.target.muted = true;
+                      e.target.volume = 0;
+                    }
                   }}
                   src={product.src} 
-                  className="w-full h-full object-contain max-h-[45vh] md:max-h-[80vh]"
+                  className={`w-full h-full object-contain max-h-[45vh] md:max-h-[80vh] ${product.src.includes('videos67') ? 'allow-unmute' : ''}`}
                   controls 
                   controlsList="nodownload"
                   autoPlay
-                  muted
                   defaultMuted
                   playsInline
                   preload="metadata"

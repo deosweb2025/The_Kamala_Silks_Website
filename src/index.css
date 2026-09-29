@@ -51,9 +51,9 @@
   }
 }
 
-/* Permanently hide volume and unmute controls across all video elements */
-video::-webkit-media-controls-volume-control-container,
-video::-webkit-media-controls-mute-button,
-video::-webkit-media-controls-volume-slider {
+/* Permanently hide volume and unmute controls across all video elements EXCEPT .allow-unmute */
+video:not(.allow-unmute)::-webkit-media-controls-volume-control-container,
+video:not(.allow-unmute)::-webkit-media-controls-mute-button,
+video:not(.allow-unmute)::-webkit-media-controls-volume-slider {
   display: none !important;
 }
