@@ -92,31 +92,31 @@ const ProductModal = ({ isOpen, onClose, product, type = "product" }) => {
                   ref={(el) => { 
                     if (el) {
                       el.muted = true;
-                      if (!product.src.includes('videos67')) {
+                      if (!product.src.match(/videos(?:67|68|69)/)) {
                         el.volume = 0;
                       }
                     }
                   }}
                   onVolumeChange={(e) => {
-                    if (!product.src.includes('videos67')) {
+                    if (!product.src.match(/videos(?:67|68|69)/)) {
                       e.target.muted = true;
                       e.target.volume = 0;
                     }
                   }}
                   onPlay={(e) => {
-                    if (!product.src.includes('videos67')) {
+                    if (!product.src.match(/videos(?:67|68|69)/)) {
                       e.target.muted = true;
                       e.target.volume = 0;
                     }
                   }}
                   onLoadedMetadata={(e) => {
-                    if (!product.src.includes('videos67')) {
+                    if (!product.src.match(/videos(?:67|68|69)/)) {
                       e.target.muted = true;
                       e.target.volume = 0;
                     }
                   }}
                   src={product.src} 
-                  className={`w-full h-full object-contain max-h-[45vh] md:max-h-[80vh] ${product.src.includes('videos67') ? 'allow-unmute' : ''}`}
+                  className={`w-full h-full object-contain max-h-[45vh] md:max-h-[80vh] ${product.src.match(/videos(?:67|68|69)/) ? 'allow-unmute' : ''}`}
                   controls 
                   controlsList="nodownload"
                   autoPlay

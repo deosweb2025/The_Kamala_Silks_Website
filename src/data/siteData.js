@@ -1340,6 +1340,27 @@ export const siteData = {
     { type: "video", src: "/videos/videos57.mp4", category: "Garad Saris", name: "9 inch par red white pure Garad Saree" },
     { type: "video", src: "/videos/videos58.mp4", category: "Garad Saris", name: "7 inch par red white pure Garad Saree" },
     { type: "video", src: "/videos/videos67.mp4", category: "Tasar Saris", name: "Tussar Jori Hand print design with blouse piece | ₹4000" }
+,
+    {
+      type: "video",
+      src: "/videos/videos68.mp4",
+      category: "Tasar Saris",
+      name: "Tussar Jori Hand print design",
+      price: "₹5,200",
+      description: "Tussar Jori Hand print design with blouse piece (6.30 meter)",
+      fabric: "Tussar Silk",
+      care: "Dry clean only"
+    },
+    {
+      type: "video",
+      src: "/videos/videos69.mp4",
+      category: "Tasar Saris",
+      name: "Muga Tussar Sari",
+      price: "₹4,800",
+      description: "Muga Tussar Sari with blouse piece (6.30 meter)",
+      fabric: "Muga Tussar Silk",
+      care: "Dry clean only"
+    }
   ],
   heroSlides: [
     {
