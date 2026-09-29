@@ -1339,13 +1339,13 @@ export const siteData = {
     { type: "video", src: "/videos/videos56.mp4", category: "Garad Saris", name: "Special 7 inch par colour Horse Design Garad" },
     { type: "video", src: "/videos/videos57.mp4", category: "Garad Saris", name: "9 inch par red white pure Garad Saree" },
     { type: "video", src: "/videos/videos58.mp4", category: "Garad Saris", name: "7 inch par red white pure Garad Saree" },
-    { type: "video", src: "/videos/videos67.mp4", category: "Tasar Saris", name: "Tussar Jori Hand print design with blouse piece | ₹4000" }
+    { type: "video", src: "/videos/videos67.mp4", category: "Tasar Saris", name: "Tussar Jori Hand print design with blouse piece (6.30 meter) | ₹4000" }
 ,
     {
       type: "video",
       src: "/videos/videos68.mp4",
       category: "Tasar Saris",
-      name: "Tussar Jori Hand print design",
+      name: "Tussar Jori Hand print design with blouse piece (6.30 meter)| ₹5,200",
       price: "₹5,200",
       description: "Tussar Jori Hand print design with blouse piece (6.30 meter)",
       fabric: "Tussar Silk",
@@ -1355,9 +1355,9 @@ export const siteData = {
       type: "video",
       src: "/videos/videos69.mp4",
       category: "Tasar Saris",
-      name: "Muga Tussar Saris",
+      name: "Muga Tussar Saris with blouse piece (6.30 meter)| ₹4,800",
       price: "₹4,800",
-      description: "Muga Tussar Sari with blouse piece (6.30 meter)",
+      description: "Muga Tussar Saris with blouse piece (6.30 meter)",
       fabric: "Muga Tussar Silk",
       care: "Dry clean only"
     }
