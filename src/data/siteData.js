@@ -1398,7 +1398,11 @@ export const siteData = {
       care: "Dry clean only"
     }
 ,
-                    ],
+                  ,
+      { type: "video", src: "/videos/videos70.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Murshidabad Silk Saree Acid print Saree (with blouse piece) | ₹4000" },
+      { type: "video", src: "/videos/videos71.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Murshidabad Silk Saree Acid print Saree (with blouse piece) | ₹4000" },
+      { type: "video", src: "/videos/videos72.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Murshidabad Silk Saree Hand Buttick print (with blouse piece) | ₹4200" }
+  ],
   heroSlides: [
     {
       id: 1,
