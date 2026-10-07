@@ -1186,6 +1186,39 @@ export const siteData = {
         care: "Dry clean only",
         price: "₹4,200"
       },
+      {
+        id: "p104",
+        name: "Double Ply Murshidabad Silk Hand buttick print (with blouse piece)",
+        category: "Double ply pure Murshidabad Silk saris",
+        image: "/images/pic104.jpeg",
+        description: "Double Ply Murshidabad Silk Hand buttick print (with blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "6.30 meter",
+        care: "Dry clean only",
+        price: "₹4,200"
+      },
+      {
+        id: "p105",
+        name: "Gachi Tussar Acid hand print saree (with blouse piece)",
+        category: "Tasar Saris",
+        image: "/images/pic105.jpeg",
+        description: "Gachi Tussar Acid hand print saree (with blouse piece)",
+        fabric: "Gachi Tussar",
+        dimensions: "6.30 meter",
+        care: "Dry clean only",
+        price: "₹4,800"
+      },
+      {
+        id: "p106",
+        name: "Double Ply Murshidabad Silk Hand buttick print (with blouse piece)",
+        category: "Double ply pure Murshidabad Silk saris",
+        image: "/images/pic106.jpeg",
+        description: "Double Ply Murshidabad Silk Hand buttick print (with blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "6.30 meter",
+        care: "Dry clean only",
+        price: "₹4,200"
+      },
     {
       id: "p99",
       name: "Silk Kethe Hand print Sari",
@@ -1296,6 +1329,9 @@ export const siteData = {
     { type: "image", src: "/images/pic101.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Murshidabad Silk Saree Acid print Saree (with blouse piece) | ₹4000" },
     { type: "image", src: "/images/pic102.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Murshidabad Silk Saree Acid print Saree (with blouse piece) | ₹4000" },
     { type: "image", src: "/images/pic103.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Murshidabad Silk Saree Hand Buttick print (with blouse piece) | ₹4200" },
+    { type: "image", src: "/images/pic104.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Double Ply Murshidabad Silk Hand buttick print (with blouse piece) | ₹4200" },
+      { type: "image", src: "/images/pic105.jpeg", category: "Tasar Saris", name: "Gachi Tussar Acid hand print saree (with blouse piece) | ₹4800" },
+      { type: "image", src: "/images/pic106.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Double Ply Murshidabad Silk Hand buttick print (with blouse piece) | ₹4200" },
     { type: "video", src: "/videos/video1.mp4", category: "Single ply pure Murshidabad Silk saris", name: "Single ply pure Murshidabad Silk Saree" },
     { type: "video", src: "/videos/videos2.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply pure Murshidabad Silk saree with blouse piece" },
     { type: "video", src: "/videos/videos3.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply pure Murshidabad Silk saree with blouse piece" },
@@ -1402,6 +1438,12 @@ export const siteData = {
       { type: "video", src: "/videos/videos70.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Murshidabad Silk Saree Acid print Saree (with blouse piece) | ₹4000" },
       { type: "video", src: "/videos/videos71.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Murshidabad Silk Saree Acid print Saree (with blouse piece) | ₹4000" },
       { type: "video", src: "/videos/videos72.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Murshidabad Silk Saree Hand Buttick print (with blouse piece) | ₹4200" }
+,
+      
+,
+      { type: "video", src: "/videos/videos73.mp4", category: "Tasar Saris", name: "Gachi Tussar Acid hand print saree (with blouse piece) | ₹4800" },
+      { type: "video", src: "/videos/videos74.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double Ply Murshidabad Silk Hand buttick print (with blouse piece) | ₹4200" },
+      { type: "video", src: "/videos/videos75.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double Ply Murshidabad Silk Hand buttick print (with blouse piece) | ₹4200" }
   ],
   heroSlides: [
     {
