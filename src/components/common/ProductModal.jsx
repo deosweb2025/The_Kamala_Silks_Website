@@ -92,31 +92,31 @@ const ProductModal = ({ isOpen, onClose, product, type = "product" }) => {
                   ref={(el) => { 
                     if (el) {
                       el.muted = true;
-                      if (!product.src.match(/videos(?:67|68|69|70|71|72|73|74|75)/)) {
+                      if (!product.src.match(/videos(?:67|68|69|70|71|72|73|74|75|76|77)/)) {
                         el.volume = 0;
                       }
                     }
                   }}
                   onVolumeChange={(e) => {
-                    if (!product.src.match(/videos(?:67|68|69|70|71|72|73|74|75)/)) {
+                    if (!product.src.match(/videos(?:67|68|69|70|71|72|73|74|75|76|77)/)) {
                       e.target.muted = true;
                       e.target.volume = 0;
                     }
                   }}
                   onPlay={(e) => {
-                    if (!product.src.match(/videos(?:67|68|69|70|71|72|73|74|75)/)) {
+                    if (!product.src.match(/videos(?:67|68|69|70|71|72|73|74|75|76|77)/)) {
                       e.target.muted = true;
                       e.target.volume = 0;
                     }
                   }}
                   onLoadedMetadata={(e) => {
-                    if (!product.src.match(/videos(?:67|68|69|70|71|72|73|74|75)/)) {
+                    if (!product.src.match(/videos(?:67|68|69|70|71|72|73|74|75|76|77)/)) {
                       e.target.muted = true;
                       e.target.volume = 0;
                     }
                   }}
                   src={product.src} 
-                  className={`w-full h-full object-contain max-h-[45vh] md:max-h-[80vh] ${product.src.match(/videos(?:67|68|69|70|71|72|73|74|75)/) ? 'allow-unmute' : ''}`}
+                  className={`w-full h-full object-contain max-h-[45vh] md:max-h-[80vh] ${product.src.match(/videos(?:67|68|69|70|71|72|73|74|75|76|77)/) ? 'allow-unmute' : ''}`}
                   controls 
                   controlsList="nodownload"
                   autoPlay
