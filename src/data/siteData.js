@@ -1241,6 +1241,39 @@ export const siteData = {
         care: "Dry clean only",
         price: "₹4,800"
       },
+      {
+        id: "p109",
+        name: "Double Ply Pure Murshidabad Silk saree (With blouse piece) Buttick print",
+        category: "Double ply pure Murshidabad Silk saris",
+        image: "/images/pic109.jpeg",
+        description: "Double Ply Pure Murshidabad Silk saree (With blouse piece) Buttick print",
+        fabric: "Murshidabad Silk",
+        dimensions: "6.30 meter",
+        care: "Dry clean only",
+        price: "₹4,200"
+      },
+      {
+        id: "p110",
+        name: "Double ply Pure Murshidabad Silk saree (With blouse piece) Acid Hand print",
+        category: "Double ply pure Murshidabad Silk saris",
+        image: "/images/pic110.jpeg",
+        description: "Double ply Pure Murshidabad Silk saree (With blouse piece) Acid Hand print",
+        fabric: "Murshidabad Silk",
+        dimensions: "6.30 meter",
+        care: "Dry clean only",
+        price: "₹4,000"
+      },
+      {
+        id: "p111",
+        name: "Double Ply Pure Murshidabad Silk saree (With blouse piece) Buttick print",
+        category: "Double ply pure Murshidabad Silk saris",
+        image: "/images/pic111.jpeg",
+        description: "Double Ply Pure Murshidabad Silk saree (With blouse piece) Buttick print",
+        fabric: "Murshidabad Silk",
+        dimensions: "6.30 meter",
+        care: "Dry clean only",
+        price: "₹4,200"
+      },
     {
       id: "p99",
       name: "Silk Kethe Hand print Sari",
@@ -1356,6 +1389,9 @@ export const siteData = {
     { type: "image", src: "/images/pic106.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Double Ply Murshidabad Silk Hand buttick print (with blouse piece) | ₹4200" },
     { type: "image", src: "/images/pic107.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Single Ply pure Murshidabad Silk Saree | ₹3000" },
     { type: "image", src: "/images/pic108.jpeg", category: "Tasar Saris", name: "Gachi Tussar Brush paint hand print saree (with blouse piece) | ₹4800" },
+    { type: "image", src: "/images/pic109.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Double Ply Pure Murshidabad Silk saree (With blouse piece) Buttick print | ₹4200" },
+    { type: "image", src: "/images/pic110.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Pure Murshidabad Silk saree (With blouse piece) Acid Hand print | ₹4000" },
+    { type: "image", src: "/images/pic111.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Double Ply Pure Murshidabad Silk saree (With blouse piece) Buttick print | ₹4200" },
     { type: "video", src: "/videos/video1.mp4", category: "Single ply pure Murshidabad Silk saris", name: "Single ply pure Murshidabad Silk Saree" },
     { type: "video", src: "/videos/videos2.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply pure Murshidabad Silk saree with blouse piece" },
     { type: "video", src: "/videos/videos3.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply pure Murshidabad Silk saree with blouse piece" },
@@ -1473,6 +1509,10 @@ export const siteData = {
 ,
       { type: "video", src: "/videos/videos76.mp4", category: "Single ply pure Murshidabad Silk saris", name: "Single Ply pure Murshidabad Silk Saree | ₹3000" },
       { type: "video", src: "/videos/videos77.mp4", category: "Tasar Saris", name: "Gachi Tussar Brush paint hand print saree (with blouse piece) | ₹4800" }
+,
+      { type: "video", src: "/videos/videos78.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double Ply Pure Murshidabad Silk saree (With blouse piece) Buttick print | ₹4200" },
+      { type: "video", src: "/videos/videos79.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double ply Pure Murshidabad Silk saree (With blouse piece) Acid Hand print | ₹4000" },
+      { type: "video", src: "/videos/videos80.mp4", category: "Double ply pure Murshidabad Silk saris", name: "Double Ply Pure Murshidabad Silk saree (With blouse piece) Buttick print | ₹4200" }
   ],
   heroSlides: [
     {
