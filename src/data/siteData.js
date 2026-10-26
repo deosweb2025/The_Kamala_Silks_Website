@@ -1423,6 +1423,39 @@ export const siteData = {
         care: "Dry clean only",
         price: "₹4,800"
       },
+      {
+        id: "p117",
+        name: "Murshidabad Pure Single Ply Silk Saree",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic117.jpeg",
+        description: "Murshidabad Pure Single Ply Silk Saree",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p118",
+        name: "Murshidabad Pure Double Ply Silk Saree (with blouse piece)",
+        category: "Double ply pure Murshidabad Silk saris",
+        image: "/images/pic118.jpeg",
+        description: "Murshidabad Pure Double Ply Silk Saree (with blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "6.30 meters",
+        care: "Dry clean only",
+        price: "₹4,000"
+      },
+      {
+        id: "p119",
+        name: "Murshidabad Pure Double Ply Silk Saree (with blouse piece)",
+        category: "Double ply pure Murshidabad Silk saris",
+        image: "/images/pic119.jpeg",
+        description: "Murshidabad Pure Double Ply Silk Saree (with blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "6.30 meters",
+        care: "Dry clean only",
+        price: "₹4,000"
+      },
     {
       id: "p99",
       name: "Silk Kethe Hand print Sari",
@@ -1552,6 +1585,9 @@ export const siteData = {
     { type: "image", src: "/images/pic67.webp", category: "Garad Saris", name: "Colour Garad Kuchi Print Saree with Blouse piece" },
     { type: "image", src: "/images/pic68.webp", category: "Garad Saris", name: "Colour Garad Saree" },
     { type: "image", src: "/images/pic69.webp", category: "Garad Saris", name: "Colour Garad Saree" },
+    { type: "image", src: "/images/pic117.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Murshidabad Pure Single Ply Silk Saree | ₹3000" },
+    { type: "image", src: "/images/pic118.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Murshidabad Pure Double Ply Silk Saree (with blouse piece) | ₹4000" },
+    { type: "image", src: "/images/pic119.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Murshidabad Pure Double Ply Silk Saree (with blouse piece) | ₹4000" },
     ...(SHOW_PRODUCT_VIDEOS ? productVideos : [])
   ],
   heroSlides: [
