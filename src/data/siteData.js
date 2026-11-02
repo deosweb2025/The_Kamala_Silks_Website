@@ -1456,6 +1456,105 @@ export const siteData = {
         care: "Dry clean only",
         price: "₹4,000"
       },
+      {
+        id: "p120",
+        name: "Pure Single Thread Murshidabad Silk Saree",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic120.jpeg",
+        description: "Pure Single Thread Murshidabad Silk Saree",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p121",
+        name: "Pure Single Thread Murshidabad Silk Saree",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic121.jpeg",
+        description: "Pure Single Thread Murshidabad Silk Saree",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p122",
+        name: "Pure Double Thread Fabric print Silk Saree (with blouse piece)",
+        category: "Double ply pure Murshidabad Silk saris",
+        image: "/images/pic122.jpeg",
+        description: "Pure Double Thread Fabric print Silk Saree (with blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "6.30 meters",
+        care: "Dry clean only",
+        price: "₹4,700"
+      },
+      {
+        id: "p123",
+        name: "Single ply pure Murshidabad Silk saree (With out blouse piece)",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic123.jpg",
+        description: "Single ply pure Murshidabad Silk saree (With out blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p124",
+        name: "Single ply pure Murshidabad Silk saree (With out blouse piece)",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic124.jpg",
+        description: "Single ply pure Murshidabad Silk saree (With out blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p125",
+        name: "Single ply pure Murshidabad Silk saree (With out blouse piece)",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic125.jpg",
+        description: "Single ply pure Murshidabad Silk saree (With out blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p126",
+        name: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece)",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic126.jpeg",
+        description: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p127",
+        name: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece)",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic127.jpeg",
+        description: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p128",
+        name: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece)",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic128.jpeg",
+        description: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece)",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
     {
       id: "p99",
       name: "Silk Kethe Hand print Sari",
@@ -1588,6 +1687,15 @@ export const siteData = {
     { type: "image", src: "/images/pic117.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Murshidabad Pure Single Ply Silk Saree | ₹3000" },
     { type: "image", src: "/images/pic118.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Murshidabad Pure Double Ply Silk Saree (with blouse piece) | ₹4000" },
     { type: "image", src: "/images/pic119.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Murshidabad Pure Double Ply Silk Saree (with blouse piece) | ₹4000" },
+    { type: "image", src: "/images/pic120.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Pure Single Thread Murshidabad Silk Saree | ₹3000" },
+    { type: "image", src: "/images/pic121.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Pure Single Thread Murshidabad Silk Saree | ₹3000" },
+    { type: "image", src: "/images/pic122.jpeg", category: "Double ply pure Murshidabad Silk saris", name: "Pure Double Thread Fabric print Silk Saree (with blouse piece) | ₹4700" },
+    { type: "image", src: "/images/pic123.jpg", category: "Single ply pure Murshidabad Silk saris", name: "Single ply pure Murshidabad Silk saree (With out blouse piece) | ₹3000" },
+    { type: "image", src: "/images/pic124.jpg", category: "Single ply pure Murshidabad Silk saris", name: "Single ply pure Murshidabad Silk saree (With out blouse piece) | ₹3000" },
+    { type: "image", src: "/images/pic125.jpg", category: "Single ply pure Murshidabad Silk saris", name: "Single ply pure Murshidabad Silk saree (With out blouse piece) | ₹3000" },
+    { type: "image", src: "/images/pic126.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece) | ₹3000" },
+    { type: "image", src: "/images/pic127.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece) | ₹3000" },
+    { type: "image", src: "/images/pic128.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece) | ₹3000" },
     ...(SHOW_PRODUCT_VIDEOS ? productVideos : [])
   ],
   heroSlides: [
