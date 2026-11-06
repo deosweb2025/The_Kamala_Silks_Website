@@ -1588,6 +1588,39 @@ export const siteData = {
         care: "Dry clean only",
         price: "₹4,000"
       },
+      {
+        id: "p132",
+        name: "One colour Pure Bishnupuri Silk",
+        category: "Bishnupuri Silk Saris",
+        image: "/images/pic132.jpg",
+        description: "One colour Pure Bishnupuri Silk",
+        fabric: "Bishnupuri Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,500"
+      },
+      {
+        id: "p133",
+        name: "Single Ply Pure Murshidabad Silk with Buttick print",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic133.jpg",
+        description: "Single Ply Pure Murshidabad Silk with Buttick print",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p134",
+        name: "Single Ply Pure Murshidabad Silk saree with Buttick print",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic134.jpg",
+        description: "Single Ply Pure Murshidabad Silk saree with Buttick print",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
     {
       id: "p99",
       name: "Silk Kethe Hand print Sari",
@@ -1732,6 +1765,9 @@ export const siteData = {
     { type: "image", src: "/images/pic129.jpg", category: "Single ply pure Murshidabad Silk saris", name: "Single thread Pure Murshidabad Silk saree with Buttick print without blouse piece | ₹3000" },
     { type: "image", src: "/images/pic130.jpg", category: "Matka Saris", name: "Pure Matka saree with blouse piece | ₹3400" },
     { type: "image", src: "/images/pic131.jpg", category: "Double ply pure Murshidabad Silk saris", name: "Double thread Pure Murshidabad Silk saree with blouse piece | ₹4000" },
+    { type: "image", src: "/images/pic132.jpg", category: "Bishnupuri Silk Saris", name: "One colour Pure Bishnupuri Silk | ₹3500" },
+    { type: "image", src: "/images/pic133.jpg", category: "Single ply pure Murshidabad Silk saris", name: "Single Ply Pure Murshidabad Silk with Buttick print | ₹3000" },
+    { type: "image", src: "/images/pic134.jpg", category: "Single ply pure Murshidabad Silk saris", name: "Single Ply Pure Murshidabad Silk saree with Buttick print | ₹3000" },
     ...(SHOW_PRODUCT_VIDEOS ? productVideos : [])
   ],
   heroSlides: [
