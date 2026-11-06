@@ -1766,8 +1766,8 @@ export const siteData = {
     { type: "image", src: "/images/pic130.jpg", category: "Matka Saris", name: "Pure Matka saree with blouse piece | ₹3400" },
     { type: "image", src: "/images/pic131.jpg", category: "Double ply pure Murshidabad Silk saris", name: "Double thread Pure Murshidabad Silk saree with blouse piece | ₹4000" },
     { type: "image", src: "/images/pic132.jpg", category: "Bishnupuri Silk Saris", name: "One colour Pure Bishnupuri Silk | ₹3500" },
-    { type: "image", src: "/images/pic133.jpg", category: "Single ply pure Murshidabad Silk saris", name: "Single Ply Pure Murshidabad Silk with Buttick print | ₹3000" },
-    { type: "image", src: "/images/pic134.jpg", category: "Single ply pure Murshidabad Silk saris", name: "Single Ply Pure Murshidabad Silk saree with Buttick print | ₹3000" },
+    { type: "image", src: "/images/pic133.jpg", category: "Single Thread pure Murshidabad Silk saris", name: "Single Ply Pure Murshidabad Silk with Buttick print | ₹3000" },
+    { type: "image", src: "/images/pic134.jpg", category: "Single Thread pure Murshidabad Silk saris", name: "Single Ply Pure Murshidabad Silk saree with Buttick print | ₹3000" },
     ...(SHOW_PRODUCT_VIDEOS ? productVideos : [])
   ],
   heroSlides: [
