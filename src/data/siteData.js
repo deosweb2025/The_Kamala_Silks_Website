@@ -1555,6 +1555,39 @@ export const siteData = {
         care: "Dry clean only",
         price: "₹3,000"
       },
+      {
+        id: "p129",
+        name: "Single thread Pure Murshidabad Silk saree with Buttick print without blouse piece",
+        category: "Single ply pure Murshidabad Silk saris",
+        image: "/images/pic129.jpg",
+        description: "Single thread Pure Murshidabad Silk saree with Buttick print without blouse piece",
+        fabric: "Murshidabad Silk",
+        dimensions: "5.50 meters",
+        care: "Dry clean only",
+        price: "₹3,000"
+      },
+      {
+        id: "p130",
+        name: "Pure Matka saree with blouse piece",
+        category: "Matka Saris",
+        image: "/images/pic130.jpg",
+        description: "Pure Matka saree with blouse piece",
+        fabric: "Pure Matka",
+        dimensions: "6.30 meters",
+        care: "Dry clean only",
+        price: "₹3,400"
+      },
+      {
+        id: "p131",
+        name: "Double thread Pure Murshidabad Silk saree with blouse piece",
+        category: "Double ply pure Murshidabad Silk saris",
+        image: "/images/pic131.jpg",
+        description: "Double thread Pure Murshidabad Silk saree with blouse piece",
+        fabric: "Murshidabad Silk",
+        dimensions: "6.30 meters",
+        care: "Dry clean only",
+        price: "₹4,000"
+      },
     {
       id: "p99",
       name: "Silk Kethe Hand print Sari",
@@ -1696,6 +1729,9 @@ export const siteData = {
     { type: "image", src: "/images/pic126.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece) | ₹3000" },
     { type: "image", src: "/images/pic127.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece) | ₹3000" },
     { type: "image", src: "/images/pic128.jpeg", category: "Single ply pure Murshidabad Silk saris", name: "Single Thread Murshidabad Silk Buttick print Saree (With out blouse piece) | ₹3000" },
+    { type: "image", src: "/images/pic129.jpg", category: "Single ply pure Murshidabad Silk saris", name: "Single thread Pure Murshidabad Silk saree with Buttick print without blouse piece | ₹3000" },
+    { type: "image", src: "/images/pic130.jpg", category: "Matka Saris", name: "Pure Matka saree with blouse piece | ₹3400" },
+    { type: "image", src: "/images/pic131.jpg", category: "Double ply pure Murshidabad Silk saris", name: "Double thread Pure Murshidabad Silk saree with blouse piece | ₹4000" },
     ...(SHOW_PRODUCT_VIDEOS ? productVideos : [])
   ],
   heroSlides: [
